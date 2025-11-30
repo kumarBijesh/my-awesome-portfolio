@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download, Github, ArrowDown } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const titles = ["Cyber Security", "Web Developer"];
 
@@ -9,6 +9,9 @@ const HeroSection = () => {
   const [titleIndex, setTitleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+
+  // Snowfall is now rendered globally by a dedicated `Snowfall` component.
+  
 
   useEffect(() => {
     const currentTitle = titles[titleIndex];
@@ -145,13 +148,15 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative flex justify-center"
           >
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
-              <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 rounded-2xl blur-3xl animate-pulse" />
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-accent/30 shadow-[0_0_50px_rgba(0,255,255,0.3)] hover:shadow-[0_0_80px_rgba(0,255,255,0.5)] transition-all duration-500 hover:scale-105">
+            <div className="relative w-56 sm:w-64 md:w-80 lg:w-96 max-w-full">
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-soft transition-transform duration-300 hover:scale-105">
                 <img
-                  src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=800&fit=crop"
+                  src="/images/new%20image.jpg"
                   alt="Bijesh Kumar"
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto object-contain max-h-[420px]"
+                  loading="lazy"
+                  decoding="async"
+                  style={{ display: "block" }}
                 />
               </div>
             </div>

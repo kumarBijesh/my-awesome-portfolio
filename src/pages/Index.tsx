@@ -13,6 +13,7 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
+        {/** Interactive 3D section temporarily disabled for debugging. */}
         <AboutSection />
         <ProjectsSection />
         <InternshipsSection />

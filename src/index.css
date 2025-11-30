@@ -7,6 +7,11 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  /* Ensure anchored sections are visible below the fixed navbar */
+  html {
+    scroll-padding-top: 5rem;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 222 25% 10%;
@@ -155,3 +160,13 @@ All colors MUST be HSL.
     background: hsl(var(--accent) / 0.8);
   }
 }
+  /* Respect users who prefer reduced motion (improves mobile performance / accessibility) */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
