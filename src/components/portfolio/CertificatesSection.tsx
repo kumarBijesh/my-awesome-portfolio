@@ -59,17 +59,24 @@ const CertificatesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="certificates" ref={ref} className="min-h-screen py-20">
-      <div className="container mx-auto px-6">
+    <section id="certificates" ref={ref} className="py-32 bg-background relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-4">
-            My <span className="gradient-text">Certificates</span>
-          </h2>
-          <div className="w-20 h-1 bg-accent mx-auto mb-12 rounded-full" />
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-display font-bold mb-6 tracking-tight">
+              Verified <span className="gradient-text">Credentials</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Professional certifications and specialized training from world-class institutions.
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certificates.map((cert, index) => (
@@ -78,32 +85,46 @@ const CertificatesSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative"
               >
-                <Card className="group h-full overflow-hidden hover:shadow-glow transition-all duration-300 border-border/50 hover:border-accent/50 bg-gradient-to-br from-card to-card/50">
-                  <div className="relative h-48 bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,255,255,0.1)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite]" />
-                    {cert.logo ? (
-                      <img
-                        src={cert.logo}
-                        alt={cert.issuer}
-                        className="h-16 w-16 object-contain relative z-10 group-hover:scale-110 transition-transform duration-300"
-                      />
-                    ) : (
-                      <Award className="w-20 h-20 text-accent relative z-10 group-hover:scale-110 transition-transform duration-300" />
-                    )}
-                  </div>
+                {/* Decorative Stack behind card */}
+                <div className="absolute inset-0 bg-accent/20 rounded-[2.5rem] translate-y-3 translate-x-3 group-hover:translate-y-5 group-hover:translate-x-5 transition-transform duration-500 opacity-20" />
 
-                  <div className="p-6">
-                    <h3 className="text-xl font-display font-bold mb-2 group-hover:text-accent transition-colors">
-                      {cert.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4">{cert.issuer}</p>
-                    <p className="text-foreground/80 mb-6 line-clamp-4">{cert.description}</p>
+                <Card className="relative z-10 h-full overflow-hidden bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[2.5rem] transition-all duration-500 group-hover:border-accent/40 group-hover:-translate-y-2 group-hover:-translate-x-2">
+                  <div className="p-8 pb-4 h-full flex flex-col">
+                    <div className="relative mb-10">
+                      <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-xl border border-white/5">
+                        {cert.logo ? (
+                          <img
+                            src={cert.logo}
+                            alt={cert.issuer}
+                            className="w-12 h-12 object-contain brightness-110"
+                          />
+                        ) : (
+                          <Award className="w-10 h-10 text-accent" />
+                        )}
+                      </div>
+                      <div className="absolute -top-2 -right-2 px-3 py-1 rounded-full bg-accent text-black text-[10px] font-bold tracking-widest uppercase">
+                        Verified
+                      </div>
+                    </div>
 
-                    <Button variant="outline" size="sm" className="w-full group/btn" asChild>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-display font-bold mb-2 group-hover:text-accent transition-colors leading-tight">
+                        {cert.title}
+                      </h3>
+                      <p className="text-accent text-sm font-semibold mb-6 tracking-wide">
+                        {cert.issuer}
+                      </p>
+                      <p className="text-foreground/50 text-sm leading-relaxed mb-8">
+                        {cert.description}
+                      </p>
+                    </div>
+
+                    <Button variant="outline" className="w-full rounded-2xl border-white/10 bg-white/5 group-hover:border-accent transition-colors h-14" asChild>
                       <a href={cert.link} target="_blank" rel="noopener noreferrer">
-                        View Certificate
-                        <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                        <span className="font-bold">Credential Link</span>
+                        <ExternalLink className="w-4 h-4 ml-2" />
                       </a>
                     </Button>
                   </div>

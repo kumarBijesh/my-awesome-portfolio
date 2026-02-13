@@ -21,8 +21,8 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      
+      setScrolled(window.scrollY > 20);
+
       const sections = navLinks.map(link => link.href.substring(1));
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -49,73 +49,62 @@ const Navigation = () => {
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-lg shadow-lg border-b border-border"
-            : "bg-transparent"
-        }`}
+        initial={{ y: -100, x: "-50%" }}
+        animate={{ y: 0, x: "-50%" }}
+        className={`fixed top-8 left-1/2 z-50 transition-all duration-500 ${scrolled ? "scale-95" : "scale-100"
+          }`}
       >
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <a
-              href="#home"
-              className="flex items-center gap-2 text-xl md:text-2xl font-display font-bold"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("#home");
-              }}
-            >
-              <Code className="w-6 h-6 text-accent" />
-              <span className="gradient-text">Bijesh</span>
-              <span>Kumar</span>
-            </a>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
-                  }}
-                  className={`text-sm font-medium transition-colors hover:text-accent relative group ${
-                    activeSection === link.href.substring(1)
-                      ? "text-accent"
-                      : "text-foreground/70"
-                  }`}
-                >
-                  {link.label}
-                  <span
-                    className={`absolute -bottom-1 left-0 w-full h-0.5 bg-accent transition-transform origin-left ${
-                      activeSection === link.href.substring(1)
-                        ? "scale-x-100"
-                        : "scale-x-0 group-hover:scale-x-100"
-                    }`}
-                  />
-                </a>
-              ))}
-              <ThemeToggle />
+        <div className="flex items-center gap-6 bg-background/40 backdrop-blur-2xl border border-white/10 px-6 py-3 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-t-white/20">
+          {/* Logo Section */}
+          <a
+            href="#home"
+            className="flex items-center gap-2 group"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick("#home");
+            }}
+          >
+            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-black shadow-glow-sm transition-transform group-hover:rotate-12">
+              <Code className="w-4 h-4" />
             </div>
+            <span className="gradient-text font-display font-black tracking-tighter text-lg hidden sm:block">Bijesh</span>
+          </a>
 
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden flex items-center gap-2">
-              <ThemeToggle />
+          {/* Vertical Separator */}
+          <div className="w-[1px] h-6 bg-white/10 hidden md:block" />
+
+          {/* Desktop Links Section */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }}
+                className={`text-[10px] font-bold uppercase tracking-[0.1em] px-4 py-2 rounded-full transition-all duration-300 ${activeSection === link.href.substring(1)
+                    ? "text-accent bg-accent/10"
+                    : "text-foreground/50 hover:text-foreground"
+                  }`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Actions & Mobile Trigger Section */}
+          <div className="flex items-center gap-3">
+            <div className="w-[1px] h-6 bg-white/10" />
+            <ThemeToggle />
+            <div className="lg:hidden">
               <Button
                 variant="ghost"
                 size="icon"
+                className="w-8 h-8 rounded-full border border-white/10"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
+                {mobileMenuOpen ? <X className="w-4 h-4 text-accent" /> : <Menu className="w-4 h-4" />}
               </Button>
             </div>
           </div>
@@ -126,30 +115,35 @@ const Navigation = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-[73px] right-0 w-3/4 h-[calc(100vh-73px)] bg-card z-40 lg:hidden shadow-2xl border-l border-border"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="fixed inset-x-6 top-28 bottom-6 bg-background/80 backdrop-blur-2xl z-40 lg:hidden rounded-[2.5rem] shadow-2xl border border-white/10 overflow-hidden"
           >
-            <div className="flex flex-col p-6 gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
-                  }}
-                  className={`text-lg font-medium py-3 px-4 rounded-lg transition-colors ${
-                    activeSection === link.href.substring(1)
-                      ? "bg-accent/10 text-accent"
-                      : "hover:bg-muted"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
+            <div className="flex flex-col h-full p-8">
+              <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-muted-foreground mb-8">Navigation</p>
+              <div className="flex flex-col gap-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }}
+                    className={`text-3xl font-display font-bold py-2 transition-all duration-300 ${activeSection === link.href.substring(1)
+                      ? "text-accent translate-x-4"
+                      : "text-foreground/40 hover:text-foreground/80 translate-x-0"
+                      }`}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+
+              <div className="mt-auto pt-10 border-t border-white/5 space-y-4">
+                <p className="text-xs text-muted-foreground">© 2026 BIJESH KUMAR</p>
+              </div>
             </div>
           </motion.div>
         )}

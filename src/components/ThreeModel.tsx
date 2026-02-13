@@ -11,6 +11,7 @@ type ThreeModelProps = {
 
 function GLTFModel({ src = "/models/my-model.glb" }: { src?: string }) {
   // useGLTF returns a cached gltf; typing as any for simplicity
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const gltf: any = useGLTF(src, true);
   return <primitive object={gltf.scene} />;
 }

@@ -9,7 +9,7 @@ const Snowfall = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let ratio = window.devicePixelRatio || 1;
+    const ratio = window.devicePixelRatio || 1;
     let width = window.innerWidth;
     let height = window.innerHeight;
 
