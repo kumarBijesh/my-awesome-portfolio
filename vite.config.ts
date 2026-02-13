@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/my-awesome-portfolio/",
+  base: "./",
   server: {
     // Use localhost for Windows to avoid IPv6 binding/firewall issues during local dev.
     host: "localhost",
