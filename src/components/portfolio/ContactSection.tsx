@@ -86,14 +86,37 @@ const ContactSection = () => {
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
-    // Simulate API connection
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    toast.success("Message Sent!", {
-      description: "Thank you! Your message was sent successfully. I will get back to you soon!",
-      icon: <ShieldCheck className="w-5 h-5 text-accent" />
-    });
-    reset();
+    try {
+      const apiKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "";
+      const formData = new FormData();
+      formData.append("access_key", apiKey);
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("subject", data.subject);
+      formData.append("message", data.message);
+      formData.append("from_name", `${data.name} via Portfolio`);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        toast.success("Success! Your message has been sent.", {
+          description: "Thank you for reaching out! I will reply to your email soon.",
+          icon: <ShieldCheck className="w-5 h-5 text-accent" />
+        });
+        reset();
+      } else {
+        toast.error(`Error: ${result.message || "Failed to send message"}`);
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again or email directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -136,12 +159,12 @@ const ContactSection = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="lg:col-span-7 bg-card/45 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 md:p-12 shadow-soft hover:border-accent/20 transition-all duration-500 flex flex-col justify-between"
+              className="lg:col-span-7 bg-card/60 backdrop-blur-xl border border-border/80 rounded-[2.5rem] p-8 md:p-12 shadow-soft hover:border-accent/40 transition-all duration-500 flex flex-col justify-between text-left"
             >
               <div className="space-y-8">
                 <div className="space-y-2">
                   <span className="text-[10px] uppercase tracking-[0.25em] text-accent font-black">Send a Message</span>
-                  <h3 className="text-3xl font-display font-black leading-none">
+                  <h3 className="text-3xl font-display font-black leading-none text-foreground">
                     Open to Full-Time Opportunities
                   </h3>
                 </div>
@@ -153,12 +176,12 @@ const ContactSection = () => {
                     <Input
                       {...register("name")}
                       placeholder="e.g. John Doe"
-                      className={`bg-white/[0.02] border-white/10 hover:border-white/20 focus:border-accent/60 focus:ring-accent/30 text-white rounded-xl h-12 font-medium ${
+                      className={`bg-primary/5 border-border hover:border-accent/40 focus:border-accent focus:ring-accent text-foreground rounded-xl h-12 font-medium ${
                         errors.name ? "border-red-500/50 focus:border-red-500/60" : ""
                       }`}
                     />
                     {errors.name && (
-                      <p className="text-xs font-bold text-red-400">{errors.name.message}</p>
+                      <p className="text-xs font-bold text-red-500">{errors.name.message}</p>
                     )}
                   </div>
 
@@ -170,12 +193,12 @@ const ContactSection = () => {
                         {...register("email")}
                         placeholder="john@example.com"
                         type="email"
-                        className={`bg-white/[0.02] border-white/10 hover:border-white/20 focus:border-accent/60 focus:ring-accent/30 text-white rounded-xl h-12 font-medium ${
+                        className={`bg-primary/5 border-border hover:border-accent/40 focus:border-accent focus:ring-accent text-foreground rounded-xl h-12 font-medium ${
                           errors.email ? "border-red-500/50 focus:border-red-500/60" : ""
                         }`}
                       />
                       {errors.email && (
-                        <p className="text-xs font-bold text-red-400">{errors.email.message}</p>
+                        <p className="text-xs font-bold text-red-500">{errors.email.message}</p>
                       )}
                     </div>
 
@@ -184,12 +207,12 @@ const ContactSection = () => {
                       <Input
                         {...register("subject")}
                         placeholder="e.g. Collaboration Offer"
-                        className={`bg-white/[0.02] border-white/10 hover:border-white/20 focus:border-accent/60 focus:ring-accent/30 text-white rounded-xl h-12 font-medium ${
+                        className={`bg-primary/5 border-border hover:border-accent/40 focus:border-accent focus:ring-accent text-foreground rounded-xl h-12 font-medium ${
                           errors.subject ? "border-red-500/50 focus:border-red-500/60" : ""
                         }`}
                       />
                       {errors.subject && (
-                        <p className="text-xs font-bold text-red-400">{errors.subject.message}</p>
+                        <p className="text-xs font-bold text-red-500">{errors.subject.message}</p>
                       )}
                     </div>
                   </div>
@@ -201,12 +224,12 @@ const ContactSection = () => {
                       {...register("message")}
                       placeholder="Hi Bijesh, I would love to connect about an open software development opportunity..."
                       rows={5}
-                      className={`bg-white/[0.02] border-white/10 hover:border-white/20 focus:border-accent/60 focus:ring-accent/30 text-white rounded-xl font-medium resize-none ${
+                      className={`bg-primary/5 border-border hover:border-accent/40 focus:border-accent focus:ring-accent text-foreground rounded-xl font-medium resize-none ${
                         errors.message ? "border-red-500/50 focus:border-red-500/60" : ""
                       }`}
                     />
                     {errors.message && (
-                      <p className="text-xs font-bold text-red-400">{errors.message.message}</p>
+                      <p className="text-xs font-bold text-red-500">{errors.message.message}</p>
                     )}
                   </div>
 
@@ -251,14 +274,14 @@ const ContactSection = () => {
                     <a
                       key={idx}
                       href={info.href}
-                      className="group flex items-center gap-5 p-5 bg-card/40 backdrop-blur-xl border border-white/5 hover:border-accent/35 rounded-2xl transition-all duration-300 shadow-soft"
+                      className="group flex items-center gap-5 p-5 bg-card/60 backdrop-blur-xl border border-border/80 hover:border-accent/40 rounded-2xl transition-all duration-300 shadow-soft text-left"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-accent text-black flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-glow-sm">
+                      <div className="w-12 h-12 rounded-xl bg-accent text-accent-foreground flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-soft">
                         <Icon className="w-5.5 h-5.5" />
                       </div>
                       <div>
                         <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-black leading-tight">{info.label}</p>
-                        <p className="font-semibold text-base text-foreground/90 group-hover:text-accent transition-colors mt-0.5">{info.value}</p>
+                        <p className="font-semibold text-base text-foreground group-hover:text-accent transition-colors mt-0.5">{info.value}</p>
                       </div>
                     </a>
                   );
@@ -270,10 +293,10 @@ const ContactSection = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-card/45 backdrop-blur-xl border border-white/5 p-8 rounded-[2.5rem] flex-1 flex flex-col justify-between shadow-soft hover:border-accent/20 transition-all duration-500"
+                className="bg-card/60 backdrop-blur-xl border border-border/80 p-8 rounded-[2.5rem] flex-1 flex flex-col justify-between shadow-soft hover:border-accent/40 transition-all duration-500 text-left"
               >
                 <div className="space-y-6">
-                  <h3 className="text-2xl font-display font-black flex items-center gap-3">
+                  <h3 className="text-2xl font-display font-black flex items-center gap-3 text-foreground">
                     <span className="w-1.5 h-6 bg-accent rounded-full shadow-glow-sm" />
                     Education
                   </h3>
@@ -282,7 +305,7 @@ const ContactSection = () => {
                     {educationDetails.map((detail, idx) => (
                       <div key={idx} className={detail.label === "University Address" ? "sm:col-span-2" : ""}>
                         <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-black leading-none">{detail.label}</p>
-                        <p className="text-sm font-semibold text-foreground/90 leading-tight mt-1">{detail.value}</p>
+                        <p className="text-sm font-semibold text-foreground leading-tight mt-1">{detail.value}</p>
                       </div>
                     ))}
                   </div>
