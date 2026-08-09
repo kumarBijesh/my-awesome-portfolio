@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Code } from "lucide-react";
+import { Menu, X, Code, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
-  { href: "#internships", label: "Internships" },
-  { href: "#certificates", label: "Certificates" },
-  { href: "#achievements", label: "Achievements" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#certificates", label: "Certifications" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -18,6 +18,14 @@ const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+
+  // Scroll Progress logic
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 25,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +36,7 @@ const Navigation = () => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
+          if (rect.top <= 250 && rect.bottom >= 250) {
             setActiveSection(section);
             break;
           }
@@ -48,30 +56,43 @@ const Navigation = () => {
 
   return (
     <>
+      {/* Scroll Progress Bar */}
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-[3px] bg-accent origin-left z-[100] shadow-[0_0_10px_rgba(138,92,245,0.6)]"
+        style={{ scaleX }}
+      />
+
       <motion.nav
         initial={{ y: -100, x: "-50%" }}
         animate={{ y: 0, x: "-50%" }}
-        className={`fixed top-8 left-1/2 z-50 transition-all duration-500 ${scrolled ? "scale-95" : "scale-100"
+        className={`fixed top-8 left-1/2 z-50 transition-all duration-500 w-[95%] max-w-7xl ${scrolled ? "scale-95" : "scale-100"
           }`}
       >
-        <div className="flex items-center gap-6 bg-background/40 backdrop-blur-2xl border border-white/10 px-6 py-3 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-t-white/20">
+        <div className="flex items-center justify-between bg-background/40 backdrop-blur-2xl border border-white/10 px-6 py-3 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.4)] border-t-white/20">
           {/* Logo Section */}
           <a
             href="#home"
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-3 group"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick("#home");
             }}
           >
-            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-black shadow-glow-sm transition-transform group-hover:rotate-12">
-              <Code className="w-4 h-4" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden bg-black/40 border border-white/10 flex items-center justify-center shadow-glow-sm transition-all group-hover:rotate-6 duration-300">
+              <img 
+                src="/images/logo.png" 
+                alt="BK Logo" 
+                className="w-full h-full object-cover scale-110" 
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = "none";
+                }}
+              />
             </div>
-            <span className="gradient-text font-display font-black tracking-tighter text-lg hidden sm:block">Bijesh</span>
+            <div className="flex flex-col">
+              <span className="gradient-text font-display font-black tracking-tighter text-base leading-none">Bijesh Kumar</span>
+              <span className="text-[7px] text-muted-foreground tracking-widest font-sans uppercase mt-0.5 font-bold hidden sm:block">Full Stack + Cybersecurity</span>
+            </div>
           </a>
-
-          {/* Vertical Separator */}
-          <div className="w-[1px] h-6 bg-white/10 hidden md:block" />
 
           {/* Desktop Links Section */}
           <div className="hidden lg:flex items-center gap-1">
@@ -83,9 +104,9 @@ const Navigation = () => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className={`text-[10px] font-bold uppercase tracking-[0.1em] px-4 py-2 rounded-full transition-all duration-300 ${activeSection === link.href.substring(1)
-                    ? "text-accent bg-accent/10"
-                    : "text-foreground/50 hover:text-foreground"
+                className={`text-[10px] font-bold uppercase tracking-[0.1em] px-4 py-2.5 rounded-full transition-all duration-350 ${activeSection === link.href.substring(1)
+                    ? "text-accent bg-accent/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] border border-accent/20"
+                    : "text-foreground/50 border border-transparent hover:text-foreground"
                   }`}
               >
                 {link.label}
@@ -95,7 +116,21 @@ const Navigation = () => {
 
           {/* Actions & Mobile Trigger Section */}
           <div className="flex items-center gap-3">
-            <div className="w-[1px] h-6 bg-white/10" />
+            <Button
+              variant="gradient"
+              size="sm"
+              className="rounded-full font-bold text-[10px] uppercase tracking-wider px-5 py-2 hidden md:flex shadow-soft"
+              asChild
+            >
+              <a
+                href="https://drive.google.com/file/d/1ameIuaRKl6OxEFYLhUrdqHMoe_aGey35/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download Resume
+              </a>
+            </Button>
+            <div className="w-[1px] h-6 bg-white/10 hidden md:block" />
             <ThemeToggle />
             <div className="lg:hidden">
               <Button

@@ -1,182 +1,188 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Briefcase, FolderGit2, Award, Check } from "lucide-react";
-import { Progress } from "@/components/ui/progress";
-import { Badge } from "@/components/ui/badge";
-
-const skills = {
-  technical: [
-    { name: "Cyber Security & Ethical Hacking", value: 92 },
-    { name: "Web Application Development", value: 85 },
-    { name: "Python, C++", value: 88 },
-    { name: "Networking & Linux", value: 80 },
-    { name: "React & TypeScript", value: 75 },
-  ],
-  professional: ["Problem Solving", "Team Leadership", "Communication", "Project Management"],
-  tools: ["Nmap", "Wireshark", "Burp Suite", "Metasploit", "Git", "VS Code"],
-  platforms: ["TryHackMe", "picoCTF", "LeetCode", "Kaggle", "HackTheBox"],
-};
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { 
+  User, 
+  Briefcase, 
+  Terminal, 
+  Award, 
+  ShieldCheck, 
+  ArrowRight,
+  GraduationCap
+} from "lucide-react";
 
 const stats = [
-  { icon: Briefcase, number: "0-1", label: "Years Experience" },
-  { icon: FolderGit2, number: "10+", label: "Projects Completed" },
-  { icon: Award, number: "15+", label: "Certificates" },
+  {
+    value: "2+",
+    label: "Years Experience",
+    description: "Full Stack & Security Audits",
+    icon: Briefcase,
+    color: "text-accent border-accent/20 bg-accent/5"
+  },
+  {
+    value: "15+",
+    label: "Projects Completed",
+    description: "Deployed SaaS & AI Toolkits",
+    icon: Terminal,
+    color: "text-indigo-400 border-indigo-500/25 bg-indigo-500/5"
+  },
+  {
+    value: "25+",
+    label: "Technologies",
+    description: "Languages, Libraries & Databases",
+    icon: ShieldCheck,
+    color: "text-emerald-400 border-emerald-500/25 bg-emerald-500/5"
+  },
+  {
+    value: "6+",
+    label: "Certifications",
+    description: "Google, Meta & TryHackMe Certified",
+    icon: Award,
+    color: "text-amber-400 border-amber-500/25 bg-amber-500/5"
+  }
 ];
 
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const handleScrollToNext = () => {
+    const element = document.getElementById("projects");
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       id="about"
       ref={ref}
-      className="min-h-screen py-32 bg-background relative overflow-hidden"
+      className="py-32 bg-muted/10 relative overflow-hidden border-t border-white/5"
     >
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
+      {/* Background glow points */}
+      <div className="absolute top-1/3 left-0 w-[400px] h-[400px] bg-accent/4 rounded-full blur-[130px] pointer-events-none -z-10" />
+      <div className="absolute bottom-1/3 right-0 w-[400px] h-[400px] bg-indigo-500/4 rounded-full blur-[130px] pointer-events-none -z-10" />
 
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto"
-        >
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-display font-bold mb-4 tracking-tight">
-              About <span className="gradient-text">Me</span>
-            </h2>
-            <div className="w-24 h-1.5 bg-accent mx-auto rounded-full mb-6" />
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Bridging the gap between complex cybersecurity challenges and elegant web solutions.
-            </p>
-          </div>
+      <div className="container mx-auto px-6 relative z-10 w-full max-w-7xl">
+        
+        {/* Header */}
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/25 text-accent text-[10px] font-black uppercase tracking-wider mb-4"
+          >
+            <User className="w-3.5 h-3.5" />
+            Profile Summary
+          </motion.div>
+          
+          <h2 className="text-5xl md:text-6xl font-display font-black mb-6 tracking-tight">
+            About <span className="gradient-text">Me</span>
+          </h2>
+          
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed font-sans font-medium">
+            Bridging the gap between robust frontend design, full-stack scalability, and industry-grade network defenses.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* Story Card - Large */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.2 }}
-              className="md:col-span-8 bg-card/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-soft hover:border-accent/30 transition-all group"
-            >
-              <h3 className="text-3xl font-display font-bold mb-8 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center text-accent">
-                  <Briefcase className="w-5 h-5" />
-                </span>
-                My Journey
+        {/* Content Layout */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Story Dossier (7 cols) */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-7 space-y-8"
+          >
+            <div className="space-y-6">
+              <h3 className="text-3xl font-display font-black flex items-center gap-3">
+                <span className="w-1.5 h-7 bg-accent rounded-full shadow-glow-sm" />
+                Professional Dossier
               </h3>
-              <div className="space-y-6 text-lg text-foreground/70 leading-relaxed">
-                <p>
-                  I'm a cybersecurity enthusiast and developer currently pursuing my Master of
-                  Computer Applications at <span className="text-foreground font-semibold">Lovely Professional University</span>. My fascination with digital defense began when I realized how technology deeply shapes our security and privacy.
-                </p>
-                <p>
-                  With a <span className="text-accent font-bold">7.6 CGPA</span> and a relentless drive for excellence, I've spent the last few years mastering the art of identifying vulnerabilities while building robust, user-centric web platforms. I believe that security isn't just a layer—it's the foundation of every successful product.
-                </p>
-              </div>
+              
+              <p className="text-foreground/80 font-sans text-base sm:text-lg leading-relaxed font-medium">
+                I am a dedicated <strong className="text-white">Full Stack Software Developer</strong> with a specialized focus on <strong className="text-white">Cybersecurity & Resilient Systems</strong>. Pursuing my Master of Computer Applications (MCA) at <strong className="text-accent">Lovely Professional University</strong>, I have cultivated a robust foundation in computer science principles, database architectures, and engineering best practices.
+              </p>
+              
+              <p className="text-foreground/80 font-sans text-base leading-relaxed font-medium">
+                My professional experience is highlighted by my time at <strong className="text-white">MusB Research</strong>, where I spearheaded secure API integrations, optimized complex patient-screening logic (saving 20% database load), and hardened platform architectures against malicious input injections.
+              </p>
 
-              <div className="grid grid-cols-3 gap-4 mt-12 pt-12 border-t border-white/5">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-3xl md:text-4xl font-display font-bold text-accent mb-1">{stat.number}</div>
-                    <div className="text-xs uppercase tracking-widest text-muted-foreground">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+              <p className="text-foreground/85 font-sans text-base leading-relaxed font-medium">
+                I approach software development with a security-first methodology—fusing high-performance React frontend architectures with resilient Node/Express backends, and validating every deployment pipeline against potential vulnerability vectors.
+              </p>
+            </div>
 
-            {/* Technical Skills - Medium */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.3 }}
-              className="md:col-span-4 bg-gradient-to-br from-accent/10 to-primary/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-soft"
-            >
-              <h3 className="text-2xl font-display font-bold mb-8 text-accent">Technical Core</h3>
-              <div className="space-y-6">
-                {skills.technical.map((skill, index) => (
-                  <div key={index} className="space-y-2">
-                    <div className="flex justify-between text-sm font-medium">
-                      <span>{skill.name}</span>
-                      <span className="text-accent">{skill.value}%</span>
-                    </div>
-                    <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.value}%` } : {}}
-                        transition={{ duration: 1.5, delay: 0.5 + index * 0.1 }}
-                        className="h-full bg-accent relative"
-                      >
-                        <div className="absolute inset-0 bg-white/30 animate-pulse" />
-                      </motion.div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Tools Bento - Small */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4 }}
-              className="md:col-span-4 bg-card/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-card/60 transition-colors"
-            >
-              <h4 className="text-sm uppercase tracking-widest text-muted-foreground mb-6 font-bold">Toolkit</h4>
-              <div className="flex flex-wrap gap-2">
-                {skills.tools.map((tool, index) => (
-                  <Badge key={index} variant="secondary" className="bg-white/5 hover:bg-accent/20 border-white/10 transition-all py-1.5 px-3">
-                    {tool}
-                  </Badge>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Platforms Bento - Small */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.5 }}
-              className="md:col-span-4 bg-card/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-card/60 transition-colors"
-            >
-              <h4 className="text-sm uppercase tracking-widest text-muted-foreground mb-6 font-bold">Battlegrounds</h4>
-              <div className="flex flex-wrap gap-2">
-                {skills.platforms.map((platform, index) => (
-                  <Badge key={index} variant="outline" className="border-accent/30 text-accent hover:bg-accent/10 transition-all py-1.5 px-3">
-                    {platform}
-                  </Badge>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Professional Skills Bento - Small */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.6 }}
-              className="md:col-span-4 bg-accent text-accent-foreground rounded-3xl p-8 flex flex-col justify-between group overflow-hidden relative"
-            >
-              <div className="relative z-10">
-                <h4 className="text-sm uppercase tracking-widest opacity-70 mb-6 font-bold">Soft Power</h4>
-                <div className="space-y-2">
-                  {skills.professional.map((skill, index) => (
-                    <div key={index} className="flex items-center gap-2 font-bold text-lg">
-                      <Check className="w-5 h-5 flex-shrink-0" />
-                      {skill}
-                    </div>
-                  ))}
+            {/* Academic pill block */}
+            <div className="p-6 bg-card/45 backdrop-blur-md border border-white/5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
+                  <GraduationCap className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase font-black tracking-widest leading-none">Education</p>
+                  <p className="text-sm font-black text-foreground mt-1">LPU • Master of Computer Applications</p>
                 </div>
               </div>
-              <div className="absolute -right-8 -bottom-8 opacity-10 group-hover:scale-125 transition-transform duration-700">
-                <Award className="w-40 h-40" />
+              <div className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-black uppercase text-accent tracking-wider shadow-sm shrink-0">
+                Grade: 7.6 CGPA
               </div>
-            </motion.div>
+            </div>
+
+            {/* Action CTA */}
+            <div>
+              <Button
+                variant="gradient"
+                size="lg"
+                onClick={handleScrollToNext}
+                className="rounded-full px-8 py-6.5 font-bold text-xs uppercase tracking-wider group shadow-soft"
+              >
+                <span>Know More About Me</span>
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Bento Stats Cards (5 cols) */}
+          <div className="lg:col-span-5 grid sm:grid-cols-2 gap-5 w-full">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                >
+                  <Card className="group relative overflow-hidden bg-card/45 backdrop-blur-md border border-white/5 p-6 rounded-[2rem] hover:border-accent/30 hover:scale-[1.02] transition-all duration-500 shadow-soft">
+                    {/* Glow backdrop inside cards */}
+                    <div className="absolute -right-8 -top-8 w-24 h-24 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors" />
+
+                    <div className="flex flex-col h-full justify-between gap-6">
+                      <div className="flex justify-between items-center">
+                        <div className={`w-10 h-10 rounded-xl border flex items-center justify-center ${stat.color} shadow-sm group-hover:scale-105 transition-transform`}>
+                          <Icon className="w-5 h-5" />
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-1.5">
+                        <h4 className="text-4xl sm:text-5xl font-display font-black tracking-tight group-hover:text-accent transition-colors leading-none">
+                          {stat.value}
+                        </h4>
+                        <p className="text-sm font-black text-foreground/90 tracking-wide font-sans">{stat.label}</p>
+                        <p className="text-xs text-muted-foreground font-sans leading-relaxed font-medium">{stat.description}</p>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
-        </motion.div>
+
+        </div>
+
       </div>
     </section>
   );

@@ -4,23 +4,35 @@ import { useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Award, Trophy } from "lucide-react";
+import { ExternalLink, Award, Trophy, Bookmark } from "lucide-react";
 
-const achievements = [
+interface Achievement {
+  title: string;
+  description: string;
+  link?: string;
+  tag: string;
+  teamSize?: string;
+  icon: React.ComponentType<any>;
+  metric?: string;
+}
+
+const achievements: Achievement[] = [
   {
-    title: "Publication in Cybersecurity Journal",
-    description:
-      "Published a research paper on advanced penetration testing techniques in a reputed cybersecurity journal, contributing to the academic community and sharing knowledge with peers.",
+    title: "Steganography & Metadata Analysis Threat Research Publication",
+    description: "Published a peer-reviewed research paper titled 'ThreatXray: A Dual-Layered Approach for Advanced Steganographic and Metadata-Based Threat Detection' in the IJSREM journal, detailing vector scanning methods for security pipelines.",
     link: "https://ijsrem.com/download/threatxray-a-dual-layered-approach-for-advanced-steganographic-and-metadata-based-threat-detection/",
+    tag: "Academic Publication",
     icon: Award,
+    metric: "ISSN Approved"
   },
   {
-    title: "Runner-up in Hackers Prey CTF 2024",
-    description:
-      "Secured the runner-up position in a Capture The Flag (CTF) competition organized by Hackers Prey at our college in 2024, where we developed a security solution tailored for financial institutions.",
-    teamSize: "3 members",
+    title: "Runner-up in Hackers Prey CTF Competition",
+    description: "Secured 2nd place in the local Capture The Flag (CTF) cybersecurity hackathon sponsored by Hackers Prey. Solved complex challenges spanning binary reverse engineering, web application penetration, and custom cryptography decryption.",
+    tag: "Security Hackathon",
+    teamSize: "Team of 3",
     icon: Trophy,
-  },
+    metric: "2nd Place"
+  }
 ];
 
 const AchievementsSection = () => {
@@ -33,78 +45,110 @@ const AchievementsSection = () => {
       ref={ref}
       className="py-32 bg-muted/10 relative overflow-hidden"
     >
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto"
-        >
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">
+      <div className="absolute top-1/4 right-0 w-[450px] h-[450px] bg-accent/4 rounded-full blur-[130px] pointer-events-none -z-10" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          
+          {/* Header */}
+          <div className="text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold mb-4"
+            >
+              <Bookmark className="w-3.5 h-3.5" />
+              Major Milestones
+            </motion.div>
+            
+            <h2 className="text-5xl md:text-6xl font-display font-black mb-6 tracking-tight animate-pulse" style={{ animationDuration: "4s" }}>
               Core <span className="gradient-text">Milestones</span>
             </h2>
-            <div className="w-24 h-1 bg-accent mx-auto rounded-full" />
+            
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+              Highlighting validated breakthroughs in cybersecurity investigations and competitive hacking tournaments.
+            </p>
           </div>
 
-          <div className="grid gap-10">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.7, delay: index * 0.2 }}
-              >
-                <Card className="group relative overflow-hidden bg-card/40 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 hover:border-accent/40 transition-all duration-500">
-                  {/* Background decoration */}
-                  <div className="absolute -right-20 -top-20 w-64 h-64 bg-accent/5 rounded-full blur-[80px] group-hover:bg-accent/10 transition-colors" />
+          {/* Timelines Cards */}
+          <div className="space-y-10">
+            {achievements.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 35 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.7, delay: index * 0.2 }}
+                >
+                  <Card className="group relative overflow-hidden bg-card/45 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 md:p-12 hover:border-accent/45 transition-all duration-500 shadow-soft hover:shadow-strong">
+                    
+                    {/* Glowing Accent Corner */}
+                    <div className="absolute -right-16 -top-16 w-48 h-48 bg-accent/5 rounded-full blur-[60px] group-hover:bg-accent/10 transition-colors duration-500 -z-10" />
 
-                  <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12 relative z-10">
-                    <div className="w-20 h-20 rounded-3xl bg-accent text-black flex items-center justify-center shadow-glow-sm shrink-0 group-hover:rotate-6 transition-transform duration-500">
-                      <achievement.icon className="w-10 h-10" />
-                    </div>
+                    <div className="flex flex-col md:flex-row items-start gap-8 md:gap-10">
+                      {/* Icon */}
+                      <div className="w-16 h-16 rounded-2xl bg-accent text-black flex items-center justify-center shadow-glow-sm shrink-0 group-hover:rotate-3 transition-transform duration-500">
+                        <Icon className="w-8 h-8" />
+                      </div>
 
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-3 mb-4">
-                        <Badge variant="outline" className="text-accent border-accent/30 bg-accent/5 text-[10px] uppercase tracking-widest px-3 py-1 font-bold">
-                          {achievement.title.includes("Journal") ? "Academic" : "Competition"}
-                        </Badge>
-                        {achievement.teamSize && (
-                          <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium">
-                            <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                            {achievement.teamSize}
+                      {/* Content details */}
+                      <div className="flex-1 space-y-6">
+                        <div className="space-y-2">
+                          <div className="flex flex-wrap items-center gap-2.5">
+                            <Badge variant="outline" className="text-accent border-accent/30 bg-accent/5 text-[9px] uppercase tracking-widest px-3 py-1 font-black rounded-full">
+                              {item.tag}
+                            </Badge>
+                            
+                            {item.teamSize && (
+                              <span className="text-xs text-muted-foreground font-semibold flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-white/10" />
+                                {item.teamSize}
+                              </span>
+                            )}
+                            
+                            {item.metric && (
+                              <Badge className="bg-white/5 border border-white/10 text-white text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">
+                                {item.metric}
+                              </Badge>
+                            )}
+                          </div>
+                          
+                          <h3 className="text-2xl md:text-3xl font-display font-black leading-tight group-hover:text-accent transition-colors">
+                            {item.title}
+                          </h3>
+                        </div>
+
+                        <p className="text-foreground/75 font-sans text-base leading-relaxed font-medium">
+                          {item.description}
+                        </p>
+
+                        {item.link && (
+                          <div className="pt-2">
+                            <Button
+                              variant="gradient"
+                              size="lg"
+                              className="rounded-xl px-7 font-bold text-sm"
+                              asChild
+                            >
+                              <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                <span>Verify Publication</span>
+                                <ExternalLink className="w-4.5 h-4.5 ml-2" />
+                              </a>
+                            </Button>
                           </div>
                         )}
                       </div>
-
-                      <h3 className="text-3xl md:text-4xl font-display font-bold mb-6 group-hover:text-accent transition-colors leading-tight">
-                        {achievement.title}
-                      </h3>
-
-                      <p className="text-foreground/70 text-lg leading-relaxed mb-8 max-w-3xl">
-                        {achievement.description}
-                      </p>
-
-                      {achievement.link && (
-                        <Button
-                          variant="gradient"
-                          size="lg"
-                          className="rounded-xl px-8"
-                          asChild
-                        >
-                          <a href={achievement.link} target="_blank" rel="noopener noreferrer">
-                            <span className="font-bold">Review Publication</span>
-                            <ExternalLink className="w-5 h-5 ml-2" />
-                          </a>
-                        </Button>
-                      )}
                     </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
-        </motion.div>
+
+        </div>
       </div>
     </section>
   );
