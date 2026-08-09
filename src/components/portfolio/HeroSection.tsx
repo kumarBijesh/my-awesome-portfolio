@@ -91,7 +91,7 @@ const HeroSection = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
                   </span>
-                  Ready to Safeguard & Build Resilient Systems
+                  Ready to Build Safe & Fast Websites
                 </motion.div>
               </div>
 
@@ -111,7 +111,7 @@ const HeroSection = () => {
 
               {/* Pitch Paragraph */}
               <p className="text-muted-foreground text-lg sm:text-xl font-sans font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                A highly passionate <strong className="text-foreground">Full Stack Developer</strong> and <strong className="text-foreground">Cybersecurity Enthusiast</strong>. Focused on building production-grade web applications with a DevSecOps mindset, ensuring total interface polish and certified, enterprise-ready cybersecurity defenses.
+                I am a passionate <strong className="text-foreground">Full Stack Developer</strong> and <strong className="text-foreground">Cybersecurity Learner</strong>. I focus on building fast, secure websites and web applications with clean code and easy-to-use designs.
               </p>
             </div>
 
@@ -263,7 +263,7 @@ const HeroSection = () => {
                   <Shield className="w-5 h-5" />
                 </div>
                 <div className="text-left font-sans text-xs font-semibold leading-tight text-white/90">
-                  Cybersecurity<br />Enthusiast
+                  Cybersecurity<br />Learner
                 </div>
               </motion.div>
 
@@ -308,7 +308,7 @@ const HeroSection = () => {
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer hidden md:flex"
         onClick={() => scrollToSection("about")}
       >
-        <span className="text-[9px] uppercase tracking-[0.35em] text-muted-foreground font-black">Scroll Expedition</span>
+        <span className="text-[9px] uppercase tracking-[0.35em] text-muted-foreground font-black">Scroll Down</span>
         <div className="w-[1px] h-10 bg-gradient-to-b from-accent to-transparent animate-pulse" />
       </motion.div>
     </section>

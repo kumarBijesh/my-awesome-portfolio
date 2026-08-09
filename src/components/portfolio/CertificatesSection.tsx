@@ -113,15 +113,15 @@ const CertificatesSection = () => {
               className="inline-flex items-center gap-2.5 px-4.5 py-1.5 rounded-full bg-accent/15 border border-accent/25 text-accent text-[10px] font-black uppercase tracking-wider mb-4"
             >
               <Award className="w-3.5 h-3.5" />
-              Academic & Security Credentials
+              Certificates & Courses
             </motion.div>
             
             <h2 className="text-5xl md:text-6xl font-display font-black mb-6 tracking-tight">
-              Certifications & <span className="gradient-text">Badges</span>
+              Certificates & <span className="gradient-text">Courses</span>
             </h2>
             
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed font-sans font-medium">
-              Industry-validated security training, full-stack software paths, and low-level competencies.
+              Certificates and training courses I have completed in web development and cybersecurity.
             </p>
           </div>
 
@@ -194,7 +194,7 @@ const CertificatesSection = () => {
                         asChild
                       >
                         <a href={cert.verifyLink} target="_blank" rel="noopener noreferrer">
-                          <span>Secure Handshake</span>
+                          <span>Verify Certificate</span>
                           <ExternalLink className="w-3.5 h-3.5 ml-2 group-hover/btn:rotate-12 transition-transform" />
                         </a>
                       </Button>

@@ -66,7 +66,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-xs text-muted-foreground font-sans font-medium text-center md:text-left max-w-xs">
-              Secure full-stack development. Building resilient systems from Patna, Bihar.
+              Full Stack Developer & Cybersecurity Learner based in Patna, Bihar.
             </p>
           </div>
 
@@ -130,7 +130,7 @@ const Footer = () => {
               Download Resume
             </a>
             <span className="w-1.5 h-1.5 rounded-full bg-white/10" />
-            <span>Handcrafted with React & Framer Motion</span>
+            <span>Built with React & Tailwind CSS</span>
           </div>
         </div>
 

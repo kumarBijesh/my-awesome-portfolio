@@ -43,72 +43,72 @@ interface ProjectCaseStudy {
 const projects: ProjectCaseStudy[] = [
   {
     title: "ThreatXray Malware Scanner",
-    tagline: "Published Academic Cyber Security Suite",
+    tagline: "Published Academic Security Research",
     category: "Cybersecurity",
-    problem: "Traditional threat scanners overlook steganographic embeds and metadata exploits, leaving networks vulnerable to stealth payload delivery.",
-    solution: "Engineered a dual-layer threat engine extracting steganographic payloads and scrubbing risky file metadata in real-time.",
+    problem: "Standard malware scanners often miss hidden data inside image files and file metadata.",
+    solution: "Built a tool that extracts hidden data from files and cleans unsafe metadata in real time.",
     features: [
-      "Steganographic payload extraction & analysis",
-      "Metadata cleaning & stripping algorithms",
-      "Malware heuristic scanning & custom YARA definitions",
-      "Published research paper detailing vector detection methods"
+      "Hidden data extraction and analysis",
+      "Metadata cleaning and safety checks",
+      "Malware scanning with custom rules",
+      "Published research paper on threat detection methods"
     ],
     metrics: [
-      { label: "Vector Detection", value: "99.2%" },
-      { label: "Analysis Overhead", value: "-40%" },
-      { label: "Publication", value: "Peer Approved" }
+      { label: "Detection Rate", value: "99.2%" },
+      { label: "Scan Time", value: "-40%" },
+      { label: "Publication", value: "Approved" }
     ],
     tags: ["Python", "SQL", "YARA Rules", "Metadata Parsing", "API"],
     icon: ShieldAlert,
     githubLink: "https://github.com/kumarBijesh/ThreatXrayApp",
     liveLink: "https://ijsrem.com/download/threatxray-a-dual-layered-approach-for-advanced-steganographic-and-metadata-based-threat-detection/",
-    liveText: "Read Publication",
+    liveText: "Read Paper",
     thumbnail: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
     videoUrl: "https://player.vimeo.com/external/409224424.sd.mp4?s=d0ea46bc289d0b67bf91e2b535d4f3b7d159a68c&profile_id=165&oauth2_token_id=57447761",
     duration: "0:45"
   },
   {
     title: "MusB Research Platform Hardening",
-    tagline: "Clinical Onboarding & Management Suite",
+    tagline: "Clinical Study Management App",
     category: "Full Stack & Security",
-    problem: "Clinical study recruitment pipelines suffer from severe cross-origin security threats, multi-tenant state leaks, and duplicate participant sign-ups.",
-    solution: "Strengthened system security via Content Security Policy (CSP) headers, resolved async registration lockups, and minimized bundle weights.",
+    problem: "Study portals suffer from security risks, slow page loads, and duplicate user signups.",
+    solution: "Secured app headers, fixed OTP registration issues, and made dashboard pages load faster.",
     features: [
-      "Rigid CSP header implementation & middleware audits",
-      "Asynchronous lock resolution for concurrent OTP registrations",
-      "Dynamic caching layers for 3x faster page transitions",
-      "Granular participant contact form deduplication rules"
+      "Strict security header checks",
+      "Fixed OTP signup bugs for smooth user registration",
+      "Caching layers for 3x faster page transitions",
+      "Stopped duplicate user signups with validation rules"
     ],
     metrics: [
       { label: "Security Leaks", value: "0 Incidents" },
       { label: "Dashboard Load", value: "3x Faster" },
-      { label: "Deduplication", value: "100% Guard" }
+      { label: "Duplicate Guard", value: "100%" }
     ],
     tags: ["React", "TypeScript", "Next.js", "PostgreSQL", "TailwindCSS"],
     icon: Activity,
     githubLink: "https://github.com/kumarBijesh/my-awesome-portfolio",
     liveLink: "https://musbresearch.com",
-    liveText: "Live Platform",
+    liveText: "Live Website",
     thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
     videoUrl: "https://player.vimeo.com/external/384745222.sd.mp4?s=503d5e23730e2f5db2c50e7b789178229bbfd2c3&profile_id=165&oauth2_token_id=57447761",
     duration: "0:50"
   },
   {
     title: "Fake News Detection Engine",
-    tagline: "NLP-Powered Media Verification Dashboard",
+    tagline: "AI News Verification App",
     category: "Machine Learning / NLP",
-    problem: "Misinformation spreads at scale, bypassing traditional truth verification systems due to high parsing overhead.",
-    solution: "Trained and deployed a machine learning text-classification model with natural language processing heuristics to check article reliability.",
+    problem: "Fake news spreads quickly online and can be hard to spot automatically.",
+    solution: "Trained an AI text classification model to check whether news articles are real or fake.",
     features: [
-      "TF-IDF Vectorization & vocabulary cross-matching",
-      "Real-time Streamlit data ingestion and inference",
-      "Semantic bias & headline clickbait evaluation",
-      "Interactive data charts and confidence metrics display"
+      "Text feature extraction and matching",
+      "Real-time news article checks via Streamlit app",
+      "Headline bias and clickbait evaluation",
+      "Interactive data charts and confidence scores"
     ],
     metrics: [
       { label: "Model Accuracy", value: "98.4%" },
-      { label: "Latency", value: "<500ms" },
-      { label: "Analyzed Sets", value: "10k+" }
+      { label: "Response Time", value: "<500ms" },
+      { label: "Articles Tested", value: "10k+" }
     ],
     tags: ["Python", "Streamlit", "Scikit-Learn", "NLP", "Pandas"],
     icon: Globe,
@@ -118,21 +118,21 @@ const projects: ProjectCaseStudy[] = [
     duration: "0:40"
   },
   {
-    title: "Forensic File Recovery & Utility Tool",
-    tagline: "Low-level Filesystem Carver",
+    title: "Forensic File Recovery Tool",
+    tagline: "Drive Scanner & Data Recovery App",
     category: "System Forensics",
-    problem: "Relational sector drift and file table corruption lead to lost records, while complex recovery suites overwhelm average users.",
-    solution: "Built a forensic script to parse raw directories, scan for deleted record signatures, and map cluster maps dynamically.",
+    problem: "Corrupted storage drives can lose important files, and existing recovery tools are complex.",
+    solution: "Built a file recovery program to scan drives and recover deleted files.",
     features: [
-      "File header signature scanning and carving",
-      "Multi-type file structure mapping & listing",
-      "Interactive visual size categories dashboard",
-      "Outcomes verification and partition check safety"
+      "File header signature scanning",
+      "Recovering multiple file formats (images, docs)",
+      "Interactive visual file categories dashboard",
+      "Safe storage partition checks"
     ],
     metrics: [
-      { label: "Sector Recovery", value: "95%" },
-      { label: "Execution Time", value: "<15s" },
-      { label: "System Overhead", value: "Minimal" }
+      { label: "Recovery Rate", value: "95%" },
+      { label: "Scan Time", value: "<15s" },
+      { label: "System Load", value: "Low" }
     ],
     tags: ["Python", "GUI (Tkinter)", "OS Internals", "Storage Parsing"],
     icon: FileSearch,
@@ -267,7 +267,7 @@ const ProjectsSection = () => {
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/25 text-accent text-[10px] font-black uppercase tracking-wider mb-4"
               >
                 <FolderGit2 className="w-3.5 h-3.5" />
-                Featured Case Studies
+                Featured Projects
               </motion.div>
               
               <h2 className="text-5xl md:text-6xl font-display font-black leading-tight tracking-tight">
@@ -275,13 +275,13 @@ const ProjectsSection = () => {
               </h2>
               
               <p className="text-muted-foreground text-lg mt-4 leading-relaxed font-sans font-medium">
-                A showcase of production-ready systems, published cyber research, and low-level software platforms.
+                A showcase of web applications, security tools, and software projects I have built.
               </p>
             </div>
             
             <div className="pb-1 hidden md:block">
               <Badge variant="outline" className="border-accent/30 text-accent uppercase tracking-widest text-[9px] font-black px-4.5 py-2 bg-accent/5 rounded-full">
-                {projects.length} Case Studies Published
+                {projects.length} Featured Projects
               </Badge>
             </div>
           </div>
@@ -322,11 +322,11 @@ const ProjectsSection = () => {
                         {/* Problem / Solution Block */}
                         <div className="space-y-4 font-sans text-left">
                           <div className="space-y-1">
-                            <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-black">Problem Definition</p>
+                            <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-black">Problem</p>
                             <p className="text-sm font-medium text-foreground/75 leading-relaxed">{project.problem}</p>
                           </div>
                           <div className="space-y-1">
-                            <p className="text-[9px] uppercase tracking-widest text-accent/80 font-black">Engineering Solution</p>
+                            <p className="text-[9px] uppercase tracking-widest text-accent/80 font-black">Solution</p>
                             <p className="text-sm font-semibold text-foreground/90 leading-relaxed">{project.solution}</p>
                           </div>
                         </div>

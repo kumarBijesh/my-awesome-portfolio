@@ -74,7 +74,7 @@ const AboutSection = () => {
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/25 text-accent text-[10px] font-black uppercase tracking-wider mb-4"
           >
             <User className="w-3.5 h-3.5" />
-            Profile Summary
+            My Profile
           </motion.div>
           
           <h2 className="text-5xl md:text-6xl font-display font-black mb-6 tracking-tight">
@@ -82,7 +82,7 @@ const AboutSection = () => {
           </h2>
           
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed font-sans font-medium">
-            Bridging the gap between robust frontend design, full-stack scalability, and industry-grade network defenses.
+            Building fast websites, user-friendly web applications, and secure code.
           </p>
         </div>
 
@@ -99,19 +99,19 @@ const AboutSection = () => {
             <div className="space-y-6">
               <h3 className="text-3xl font-display font-black flex items-center gap-3">
                 <span className="w-1.5 h-7 bg-accent rounded-full shadow-glow-sm" />
-                Professional Dossier
+                My Background
               </h3>
               
               <p className="text-foreground/80 font-sans text-base sm:text-lg leading-relaxed font-medium">
-                I am a dedicated <strong className="text-white">Full Stack Software Developer</strong> with a specialized focus on <strong className="text-white">Cybersecurity & Resilient Systems</strong>. Pursuing my Master of Computer Applications (MCA) at <strong className="text-accent">Lovely Professional University</strong>, I have cultivated a robust foundation in computer science principles, database architectures, and engineering best practices.
+                I am a dedicated <strong className="text-white">Full Stack Software Developer</strong> who loves building web apps and learning about <strong className="text-white">Cybersecurity & Safe Systems</strong>. Studying for my Master of Computer Applications (MCA) at <strong className="text-accent">Lovely Professional University</strong>, I built a strong foundation in programming, web development, and database management.
               </p>
               
               <p className="text-foreground/80 font-sans text-base leading-relaxed font-medium">
-                My professional experience is highlighted by my time at <strong className="text-white">MusB Research</strong>, where I spearheaded secure API integrations, optimized complex patient-screening logic (saving 20% database load), and hardened platform architectures against malicious input injections.
+                In my work at <strong className="text-white">MusB Research</strong>, I built secure APIs, improved database performance by 20%, and protected the platform against invalid inputs and safety risks.
               </p>
 
               <p className="text-foreground/85 font-sans text-base leading-relaxed font-medium">
-                I approach software development with a security-first methodology—fusing high-performance React frontend architectures with resilient Node/Express backends, and validating every deployment pipeline against potential vulnerability vectors.
+                I build frontend apps using React and backends with Node/Express, while making sure the code is clean, fast, and secure.
               </p>
             </div>
 
@@ -139,7 +139,7 @@ const AboutSection = () => {
                 onClick={handleScrollToNext}
                 className="rounded-full px-8 py-6.5 font-bold text-xs uppercase tracking-wider group shadow-soft"
               >
-                <span>Know More About Me</span>
+                <span>Explore My Work</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>

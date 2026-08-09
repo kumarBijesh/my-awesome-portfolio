@@ -24,7 +24,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Cybersecurity",
     icon: ShieldAlert,
-    description: "Digital forensics, penetration testing, and security posture engineering.",
+    description: "Network security, web security checks, and testing system safety.",
     skills: [
       "Penetration Testing",
       "Vulnerability Assessment",
@@ -40,7 +40,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Frontend Engineering",
     icon: Code2,
-    description: "Creating highly interactive, accessible, and fast interfaces.",
+    description: "Building fast, responsive, and easy-to-use user interfaces.",
     skills: [
       "React.js",
       "Next.js",
@@ -56,7 +56,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Backend Development",
     icon: Server,
-    description: "Architecting secure, modular, and optimized API frameworks.",
+    description: "Building fast, safe, and reliable server APIs.",
     skills: [
       "Node.js",
       "Express.js",
@@ -72,7 +72,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Databases & Storage",
     icon: Database,
-    description: "Designing reliable relational schemas and cached search stores.",
+    description: "Managing databases, writing queries, and storing data efficiently.",
     skills: [
       "PostgreSQL",
       "MySQL",
@@ -88,7 +88,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Cloud & DevOps",
     icon: Cloud,
-    description: "Deploying resilient web services with continuous integration pipeline runs.",
+    description: "Publishing web apps to cloud platforms with automated tools.",
     skills: [
       "AWS Services",
       "Docker Containers",
@@ -104,7 +104,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Tools & Frameworks",
     icon: Wrench,
-    description: "Enhancing productivity with industry-standard development utilities.",
+    description: "Software tools and utilities I use every day to write code.",
     skills: [
       "VS Code & Vim",
       "Postman API client",
@@ -163,7 +163,7 @@ const SkillsSection = () => {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold mb-4"
             >
               <Lock className="w-3.5 h-3.5" />
-              Verified Competencies
+              My Skills
             </motion.div>
             
             <motion.h2 
@@ -172,7 +172,7 @@ const SkillsSection = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-5xl md:text-6xl font-display font-black mb-6 tracking-tight"
             >
-              Technical <span className="gradient-text">Armory</span>
+              Technical <span className="gradient-text">Skills</span>
             </motion.h2>
             
             <motion.p 
@@ -181,7 +181,7 @@ const SkillsSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
             >
-              A categorized breakdown of full-stack engineering languages, libraries, and security auditing tools.
+              A clear breakdown of programming languages, frameworks, databases, and tools I work with.
             </motion.p>
           </div>
 
@@ -212,7 +212,7 @@ const SkillsSection = () => {
                           <Icon className="w-6 h-6" />
                         </div>
                         <div className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground opacity-60 group-hover:opacity-100 transition-opacity">
-                          Secure Stack
+                          Tech Stack
                         </div>
                       </div>
 

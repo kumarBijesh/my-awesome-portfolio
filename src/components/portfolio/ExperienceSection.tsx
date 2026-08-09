@@ -38,14 +38,14 @@ const experiences: ExperienceItem[] = [
     location: "Remote / Hybrid",
     type: "Full-Time / Contract",
     duration: "Aug 2025 - Present",
-    description: "Hardening clinical research workflows, refining authentication layers, and scaling participant oversight architecture for a premium clinical study portal.",
+    description: "Building and securing clinical study software, managing user logins, and improving portal performance.",
     accomplishments: [
-      "Secured application endpoints through strict Content Security Policy (CSP) headers and cross-origin middleware audits, mitigating XSS risks.",
-      "Engineered reliable API integrations and optimized relational database queries to resolve concurrent OTP registration locks.",
-      "Redesigned the Clinical Study Screener pipeline, preventing duplication issues by enforcing granular email and contact constraints.",
-      "Optimized Participant Dashboard caching layers, resulting in 3x faster page transitions and smooth layout shifts.",
-      "Diagnosed and resolved critical UI state issues in asynchronous registration workflows, preventing navigation bugs.",
-      "Assisted production deployments and sustained high uptime through automated monitoring alerts."
+      "Secured application endpoints using header checks to protect against XSS risks.",
+      "Built reliable APIs and optimized database queries to fix login and OTP registration issues.",
+      "Updated the user registration form to prevent duplicate signups.",
+      "Improved dashboard caching, making pages load 3 times faster.",
+      "Found and fixed UI state bugs in user signup forms to prevent navigation errors.",
+      "Helped deploy updates to live servers and monitored system uptime."
     ],
     skills: ["React", "TypeScript", "Next.js", "Express.js", "PostgreSQL", "CSP Headers", "API Audits", "Caching"],
     link: "https://musbresearch.com",
@@ -58,16 +58,16 @@ const experiences: ExperienceItem[] = [
     location: "Remote",
     type: "Internship",
     duration: "Jun 2025 - Jul 2025",
-    description: "Conducted security audits, performed vulnerability scans, and simulated vulnerability patching across active staging networks.",
+    description: "Ran security scans, performed web vulnerability testing, and helped fix security issues.",
     accomplishments: [
-      "Performed hands-on vulnerability assessments and penetration testing using Nmap, Metasploit, and Burp Suite.",
-      "Monitored and decoded suspicious packet logs using Wireshark to spot network anomalies and threat signatures.",
-      "Authored rigorous security analysis reports outlining vulnerability remediations for development leads.",
-      "Identified and reported minor authentication bypass paths and outdated sub-dependencies in staging environments."
+      "Performed hands-on security testing and vulnerability scans using Nmap, Metasploit, and Burp Suite.",
+      "Monitored network traffic logs using Wireshark to spot unusual activity and security risks.",
+      "Wrote clear security reports explaining vulnerabilities and how to fix them.",
+      "Found and reported login security risks and outdated dependencies in test environments."
     ],
     skills: ["Vulnerability Scan", "Penetration Testing", "Nmap", "Wireshark", "Burp Suite", "Metasploit", "Network Audit"],
     link: "https://drive.google.com/file/d/15OZ1GUxBlEy0anY1aWxbF6FV-M2RE0JS/view?usp=sharing",
-    linkText: "Elevate Labs Credentials"
+    linkText: "View Certificate"
   }
 ];
 
@@ -253,15 +253,15 @@ const ExperienceSection = () => {
               className="inline-flex items-center gap-2.5 px-4.5 py-1.5 rounded-full bg-accent/15 border border-accent/25 text-accent text-[10px] font-black uppercase tracking-wider mb-4"
             >
               <Briefcase className="w-3.5 h-3.5" />
-              Professional Chronology
+              Work Experience
             </motion.div>
             
             <h2 className="text-5xl md:text-6xl font-display font-black mb-6 tracking-tight">
-              Work & <span className="gradient-text">Activity</span>
+              Work & <span className="gradient-text">Experience</span>
             </h2>
             
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed font-sans font-medium">
-              Reviewing professional software engineering milestones, real-time contribution metrics, and development focus.
+              My professional work history, coding projects, and daily development tasks.
             </p>
           </div>
 
@@ -272,7 +272,7 @@ const ExperienceSection = () => {
             <div className="lg:col-span-7 space-y-12">
               <h3 className="text-3xl font-display font-black text-left flex items-center gap-3">
                 <span className="w-1.5 h-7 bg-accent rounded-full shadow-glow-sm" />
-                Experience History
+                Work History
               </h3>
 
               <div className="relative border-l border-white/10 pl-6 sm:pl-8 space-y-14 text-left">
@@ -363,7 +363,7 @@ const ExperienceSection = () => {
             <div className="lg:col-span-5 flex flex-col gap-8 w-full mt-10 lg:mt-0">
               <h3 className="text-3xl font-display font-black text-left flex items-center gap-3">
                 <span className="w-1.5 h-7 bg-accent rounded-full shadow-glow-sm" />
-                Live Indicators
+                Current Activity
               </h3>
 
               {/* GitHub contribution matrix card */}

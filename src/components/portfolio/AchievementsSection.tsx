@@ -18,17 +18,17 @@ interface Achievement {
 
 const achievements: Achievement[] = [
   {
-    title: "Steganography & Metadata Analysis Threat Research Publication",
-    description: "Published a peer-reviewed research paper titled 'ThreatXray: A Dual-Layered Approach for Advanced Steganographic and Metadata-Based Threat Detection' in the IJSREM journal, detailing vector scanning methods for security pipelines.",
+    title: "Threat Research Paper Publication",
+    description: "Published a research paper titled 'ThreatXray: A Dual-Layered Approach for Advanced Steganographic and Metadata-Based Threat Detection' in the IJSREM journal, explaining security scanning methods.",
     link: "https://ijsrem.com/download/threatxray-a-dual-layered-approach-for-advanced-steganographic-and-metadata-based-threat-detection/",
-    tag: "Academic Publication",
+    tag: "Research Paper",
     icon: Award,
-    metric: "ISSN Approved"
+    metric: "Approved"
   },
   {
     title: "Runner-up in Hackers Prey CTF Competition",
-    description: "Secured 2nd place in the local Capture The Flag (CTF) cybersecurity hackathon sponsored by Hackers Prey. Solved complex challenges spanning binary reverse engineering, web application penetration, and custom cryptography decryption.",
-    tag: "Security Hackathon",
+    description: "Won 2nd place in the Capture The Flag (CTF) cybersecurity competition by Hackers Prey, solving web application security and cryptography challenges.",
+    tag: "Security Competition",
     teamSize: "Team of 3",
     icon: Trophy,
     metric: "2nd Place"
@@ -59,15 +59,15 @@ const AchievementsSection = () => {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold mb-4"
             >
               <Bookmark className="w-3.5 h-3.5" />
-              Major Milestones
+              Achievements
             </motion.div>
             
             <h2 className="text-5xl md:text-6xl font-display font-black mb-6 tracking-tight animate-pulse" style={{ animationDuration: "4s" }}>
-              Core <span className="gradient-text">Milestones</span>
+              Key <span className="gradient-text">Achievements</span>
             </h2>
             
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-              Highlighting validated breakthroughs in cybersecurity investigations and competitive hacking tournaments.
+              A list of awards, research publications, and competition wins.
             </p>
           </div>
 
@@ -133,7 +133,7 @@ const AchievementsSection = () => {
                               asChild
                             >
                               <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                <span>Verify Publication</span>
+                                <span>Read Research Paper</span>
                                 <ExternalLink className="w-4.5 h-4.5 ml-2" />
                               </a>
                             </Button>

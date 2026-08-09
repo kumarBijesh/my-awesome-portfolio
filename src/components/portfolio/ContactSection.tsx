@@ -34,19 +34,19 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const contactInfo = [
   {
     icon: Mail,
-    label: "Secure Email",
+    label: "Email Address",
     value: "b.k.lpuinsta@gmail.com",
     href: "mailto:b.k.lpuinsta@gmail.com",
   },
   {
     icon: Phone,
-    label: "Direct Line",
+    label: "Phone Number",
     value: "+91 8789774242",
     href: "tel:+918789774242",
   },
   {
     icon: MapPin,
-    label: "Current Base",
+    label: "Location",
     value: "Patna, Bihar",
   },
 ];
@@ -59,12 +59,12 @@ const socialLinks = [
 ];
 
 const educationDetails = [
-  { label: "Institution", value: "Lovely Professional University" },
-  { label: "Degree & Core", value: "MCA (Master of Computer Applications)" },
-  { label: "Scholastic Grade", value: "7.6 CGPA" },
-  { label: "Graduation Window", value: "2023 - 2025" },
+  { label: "University", value: "Lovely Professional University" },
+  { label: "Degree", value: "MCA (Master of Computer Applications)" },
+  { label: "Grade", value: "7.6 CGPA" },
+  { label: "Years", value: "2023 - 2025" },
   {
-    label: "University Address",
+    label: "Address",
     value:
       "Lovely Professional University, Jalandhar - Delhi G.T. Road, Phagwara, Punjab, India - 144411",
   },
@@ -89,8 +89,8 @@ const ContactSection = () => {
     // Simulate API connection
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
-    toast.success("Connection Secured!", {
-      description: "Secure handshake complete. Message sent successfully. I will get back to you shortly!",
+    toast.success("Message Sent!", {
+      description: "Thank you! Your message was sent successfully. I will get back to you soon!",
       icon: <ShieldCheck className="w-5 h-5 text-accent" />
     });
     reset();
@@ -117,7 +117,7 @@ const ContactSection = () => {
               className="inline-flex items-center gap-2.5 px-4.5 py-1.5 rounded-full bg-accent/15 border border-accent/25 text-accent text-[10px] font-black uppercase tracking-wider mb-4"
             >
               <Lock className="w-3.5 h-3.5" />
-              Secure Communication Link
+              Get In Touch
             </motion.div>
             
             <h2 className="text-5xl md:text-6xl font-display font-black mb-6 tracking-tight">
@@ -125,7 +125,7 @@ const ContactSection = () => {
             </h2>
             
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-              Open for interesting full-stack positions, security audits, or general technical discussions.
+              Feel free to reach out if you have a job opportunity, project idea, or question.
             </p>
           </div>
 
@@ -140,7 +140,7 @@ const ContactSection = () => {
             >
               <div className="space-y-8">
                 <div className="space-y-2">
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-accent font-black">Secure Transmission</span>
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-accent font-black">Send a Message</span>
                   <h3 className="text-3xl font-display font-black leading-none">
                     Open to Full-Time Opportunities
                   </h3>
@@ -196,7 +196,7 @@ const ContactSection = () => {
 
                   {/* Message field */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Message Payload</label>
+                    <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Your Message</label>
                     <Textarea
                       {...register("message")}
                       placeholder="Hi Bijesh, I would love to connect about an open software development opportunity..."
@@ -221,11 +221,11 @@ const ContactSection = () => {
                       {isSubmitting ? (
                         <span className="flex items-center gap-2">
                           <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                          Establishing Secure Handshake...
+                          Sending Message...
                         </span>
                       ) : (
                         <span className="flex items-center gap-2">
-                          Send Encrypted Payload
+                          Send Message
                           <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                         </span>
                       )}
@@ -275,7 +275,7 @@ const ContactSection = () => {
                 <div className="space-y-6">
                   <h3 className="text-2xl font-display font-black flex items-center gap-3">
                     <span className="w-1.5 h-6 bg-accent rounded-full shadow-glow-sm" />
-                    Academic Dossier
+                    Education
                   </h3>
                   
                   <div className="grid sm:grid-cols-2 gap-y-5 gap-x-6">

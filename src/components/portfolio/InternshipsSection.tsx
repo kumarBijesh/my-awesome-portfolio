@@ -89,7 +89,7 @@ const InternshipsSection = () => {
                         asChild
                       >
                         <a href={internship.certificateLink} target="_blank" rel="noopener noreferrer">
-                          <span className="font-bold">Credential Details</span>
+                          <span className="font-bold">View Certificate</span>
                           <ExternalLink className="w-5 h-5 ml-2 group-hover/btn:rotate-12 transition-transform" />
                         </a>
                       </Button>
