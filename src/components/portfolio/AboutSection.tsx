@@ -96,43 +96,43 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-7 space-y-8"
           >
-            <div className="space-y-6">
+            <div className="space-y-6 text-left">
               <h3 className="text-3xl font-display font-black flex items-center gap-3">
                 <span className="w-1.5 h-7 bg-accent rounded-full shadow-glow-sm" />
                 My Background
               </h3>
               
-              <p className="text-foreground/80 font-sans text-base sm:text-lg leading-relaxed font-medium">
-                I am a dedicated <strong className="text-white">Full Stack Software Developer</strong> who loves building web apps and learning about <strong className="text-white">Cybersecurity & Safe Systems</strong>. Studying for my Master of Computer Applications (MCA) at <strong className="text-accent">Lovely Professional University</strong>, I built a strong foundation in programming, web development, and database management.
+              <p className="text-foreground/90 font-sans text-base sm:text-lg leading-relaxed font-medium">
+                I am a dedicated <strong className="text-foreground font-black">Full Stack Software Developer</strong> who loves building web apps and learning about <strong className="text-foreground font-black">Cybersecurity & Safe Systems</strong>. Studying for my Master of Computer Applications (MCA) at <strong className="text-accent font-black">Lovely Professional University</strong>, I built a strong foundation in programming, web development, and database management.
               </p>
               
-              <p className="text-foreground/80 font-sans text-base leading-relaxed font-medium">
-                In my work at <strong className="text-white">MusB Research</strong>, I built secure APIs, improved database performance by 20%, and protected the platform against invalid inputs and safety risks.
+              <p className="text-foreground/90 font-sans text-base leading-relaxed font-medium">
+                In my work at <strong className="text-foreground font-black">MusB Research</strong>, I built secure APIs, improved database performance by 20%, and protected the platform against invalid inputs and safety risks.
               </p>
 
-              <p className="text-foreground/85 font-sans text-base leading-relaxed font-medium">
+              <p className="text-foreground/90 font-sans text-base leading-relaxed font-medium">
                 I build frontend apps using React and backends with Node/Express, while making sure the code is clean, fast, and secure.
               </p>
             </div>
 
             {/* Academic pill block */}
-            <div className="p-6 bg-card/45 backdrop-blur-md border border-white/5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="p-6 bg-card/60 backdrop-blur-md border border-border/80 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-soft">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
                   <GraduationCap className="w-6 h-6" />
                 </div>
-                <div>
+                <div className="text-left">
                   <p className="text-xs text-muted-foreground uppercase font-black tracking-widest leading-none">Education</p>
                   <p className="text-sm font-black text-foreground mt-1">LPU • Master of Computer Applications</p>
                 </div>
               </div>
-              <div className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-black uppercase text-accent tracking-wider shadow-sm shrink-0">
+              <div className="px-4 py-1.5 rounded-full bg-primary/5 border border-border text-xs font-black uppercase text-accent tracking-wider shadow-sm shrink-0">
                 Grade: 7.6 CGPA
               </div>
             </div>
 
             {/* Action CTA */}
-            <div>
+            <div className="text-left">
               <Button
                 variant="gradient"
                 size="lg"
@@ -156,11 +156,11 @@ const AboutSection = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                 >
-                  <Card className="group relative overflow-hidden bg-card/45 backdrop-blur-md border border-white/5 p-6 rounded-[2rem] hover:border-accent/30 hover:scale-[1.02] transition-all duration-500 shadow-soft">
+                  <Card className="group relative overflow-hidden bg-card/60 backdrop-blur-md border border-border/80 p-6 rounded-[2rem] hover:border-accent/40 hover:scale-[1.02] transition-all duration-500 shadow-soft">
                     {/* Glow backdrop inside cards */}
                     <div className="absolute -right-8 -top-8 w-24 h-24 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors" />
 
-                    <div className="flex flex-col h-full justify-between gap-6">
+                    <div className="flex flex-col h-full justify-between gap-6 text-left">
                       <div className="flex justify-between items-center">
                         <div className={`w-10 h-10 rounded-xl border flex items-center justify-center ${stat.color} shadow-sm group-hover:scale-105 transition-transform`}>
                           <Icon className="w-5 h-5" />
@@ -171,7 +171,7 @@ const AboutSection = () => {
                         <h4 className="text-4xl sm:text-5xl font-display font-black tracking-tight group-hover:text-accent transition-colors leading-none">
                           {stat.value}
                         </h4>
-                        <p className="text-sm font-black text-foreground/90 tracking-wide font-sans">{stat.label}</p>
+                        <p className="text-sm font-black text-foreground tracking-wide font-sans">{stat.label}</p>
                         <p className="text-xs text-muted-foreground font-sans leading-relaxed font-medium">{stat.description}</p>
                       </div>
                     </div>

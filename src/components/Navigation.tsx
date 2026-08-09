@@ -58,17 +58,17 @@ const Navigation = () => {
     <>
       {/* Scroll Progress Bar */}
       <motion.div 
-        className="fixed top-0 left-0 right-0 h-[3px] bg-accent origin-left z-[100] shadow-[0_0_10px_rgba(138,92,245,0.6)]"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-accent origin-left z-[100] shadow-[0_0_10px_hsl(var(--accent)/0.6)]"
         style={{ scaleX }}
       />
 
       <motion.nav
         initial={{ y: -100, x: "-50%" }}
         animate={{ y: 0, x: "-50%" }}
-        className={`fixed top-8 left-1/2 z-50 transition-all duration-500 w-[95%] max-w-7xl ${scrolled ? "scale-95" : "scale-100"
+        className={`fixed top-6 left-1/2 z-50 transition-all duration-500 w-[95%] max-w-7xl ${scrolled ? "scale-95" : "scale-100"
           }`}
       >
-        <div className="flex items-center justify-between bg-background/40 backdrop-blur-2xl border border-white/10 px-6 py-3 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.4)] border-t-white/20">
+        <div className="flex items-center justify-between bg-card/80 backdrop-blur-2xl border border-border/60 px-6 py-3 rounded-full shadow-soft">
           {/* Logo Section */}
           <a
             href="#home"
@@ -78,7 +78,7 @@ const Navigation = () => {
               handleNavClick("#home");
             }}
           >
-            <div className="w-10 h-10 rounded-xl overflow-hidden bg-black/40 border border-white/10 flex items-center justify-center shadow-glow-sm transition-all group-hover:rotate-6 duration-300">
+            <div className="w-10 h-10 rounded-xl overflow-hidden bg-primary/5 border border-border flex items-center justify-center transition-all group-hover:rotate-6 duration-300">
               <img 
                 src="/images/logo.png" 
                 alt="BK Logo" 
@@ -88,9 +88,9 @@ const Navigation = () => {
                 }}
               />
             </div>
-            <div className="flex flex-col">
-              <span className="gradient-text font-display font-black tracking-tighter text-base leading-none">Bijesh Kumar</span>
-              <span className="text-[7px] text-muted-foreground tracking-widest font-sans uppercase mt-0.5 font-bold hidden sm:block">Full Stack + Cybersecurity</span>
+            <div className="flex flex-col text-left">
+              <span className="font-display font-black tracking-tight text-base leading-none text-foreground group-hover:text-accent transition-colors">Bijesh Kumar</span>
+              <span className="text-[8px] text-muted-foreground tracking-widest uppercase mt-0.5 font-bold hidden sm:block">Full Stack Developer</span>
             </div>
           </a>
 
@@ -105,8 +105,8 @@ const Navigation = () => {
                   handleNavClick(link.href);
                 }}
                 className={`text-[10px] font-bold uppercase tracking-[0.1em] px-4 py-2.5 rounded-full transition-all duration-350 ${activeSection === link.href.substring(1)
-                    ? "text-accent bg-accent/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] border border-accent/20"
-                    : "text-foreground/50 border border-transparent hover:text-foreground"
+                    ? "text-accent bg-accent/10 border border-accent/25 font-black"
+                    : "text-foreground/60 border border-transparent hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5"
                   }`}
               >
                 {link.label}
@@ -130,13 +130,13 @@ const Navigation = () => {
                 Download Resume
               </a>
             </Button>
-            <div className="w-[1px] h-6 bg-white/10 hidden md:block" />
+            <div className="w-[1px] h-6 bg-border hidden md:block" />
             <ThemeToggle />
             <div className="lg:hidden">
               <Button
                 variant="ghost"
                 size="icon"
-                className="w-8 h-8 rounded-full border border-white/10"
+                className="w-8 h-8 rounded-full border border-border"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 {mobileMenuOpen ? <X className="w-4 h-4 text-accent" /> : <Menu className="w-4 h-4" />}

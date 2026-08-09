@@ -243,26 +243,26 @@ const HeroSection = () => {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-6 -left-8 bg-[#0a0c10]/75 backdrop-blur-md border border-white/10 px-4 py-3 rounded-2xl shadow-strong flex items-center gap-3 hover:border-accent/40 transition-colors z-20"
+                className="absolute -top-6 -left-8 bg-card/90 backdrop-blur-md border border-border/80 px-4 py-3 rounded-2xl shadow-soft flex items-center gap-3 hover:border-accent/40 transition-colors z-20"
               >
                 <div className="w-9 h-9 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
                   <Code2 className="w-5 h-5" />
                 </div>
-                <div className="text-left font-sans text-xs font-semibold leading-tight text-white/90">
+                <div className="text-left font-sans text-xs font-semibold leading-tight text-foreground">
                   Full Stack<br />Developer
                 </div>
               </motion.div>
 
-              {/* FLOATING BADGE 2: Top-Right (Cybersecurity Enthusiast) */}
+              {/* FLOATING BADGE 2: Top-Right (Cybersecurity Learner) */}
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -top-4 -right-12 bg-[#0a0c10]/75 backdrop-blur-md border border-white/10 px-4 py-3 rounded-2xl shadow-strong flex items-center gap-3 hover:border-accent/40 transition-colors z-20"
+                className="absolute -top-4 -right-12 bg-card/90 backdrop-blur-md border border-border/80 px-4 py-3 rounded-2xl shadow-soft flex items-center gap-3 hover:border-accent/40 transition-colors z-20"
               >
-                <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/25 text-indigo-400 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/25 text-accent flex items-center justify-center shrink-0">
                   <Shield className="w-5 h-5" />
                 </div>
-                <div className="text-left font-sans text-xs font-semibold leading-tight text-white/90">
+                <div className="text-left font-sans text-xs font-semibold leading-tight text-foreground">
                   Cybersecurity<br />Learner
                 </div>
               </motion.div>
@@ -271,12 +271,12 @@ const HeroSection = () => {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -bottom-6 -left-12 bg-[#0a0c10]/75 backdrop-blur-md border border-white/10 px-4 py-3 rounded-2xl shadow-strong flex items-center gap-3 hover:border-accent/40 transition-colors z-20"
+                className="absolute -bottom-6 -left-12 bg-card/90 backdrop-blur-md border border-border/80 px-4 py-3 rounded-2xl shadow-soft flex items-center gap-3 hover:border-accent/40 transition-colors z-20"
               >
-                <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-500 flex items-center justify-center shrink-0">
                   <Puzzle className="w-5 h-5" />
                 </div>
-                <div className="text-left font-sans text-xs font-semibold leading-tight text-white/90">
+                <div className="text-left font-sans text-xs font-semibold leading-tight text-foreground">
                   Problem<br />Solver
                 </div>
               </motion.div>
@@ -285,12 +285,12 @@ const HeroSection = () => {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className="absolute bottom-2 -right-8 bg-[#0a0c10]/75 backdrop-blur-md border border-white/10 px-4 py-3 rounded-2xl shadow-strong flex items-center gap-3 hover:border-accent/40 transition-colors z-20"
+                className="absolute bottom-2 -right-8 bg-card/90 backdrop-blur-md border border-border/80 px-4 py-3 rounded-2xl shadow-soft flex items-center gap-3 hover:border-accent/40 transition-colors z-20"
               >
-                <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-500 flex items-center justify-center shrink-0">
                   <Terminal className="w-5 h-5" />
                 </div>
-                <div className="text-left font-sans text-xs font-semibold leading-tight text-white/90">
+                <div className="text-left font-sans text-xs font-semibold leading-tight text-foreground">
                   Clean<br />Code
                 </div>
               </motion.div>

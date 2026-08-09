@@ -14,6 +14,7 @@ import {
   CheckCircle,
   FileSearch,
   BookOpen,
+  ShoppingBag,
   Play,
   X,
   Volume2,
@@ -41,6 +42,33 @@ interface ProjectCaseStudy {
 }
 
 const projects: ProjectCaseStudy[] = [
+  {
+    title: "Modulive",
+    tagline: "Modern Furniture E-Commerce Platform",
+    category: "Full-Stack E-Commerce",
+    problem: "Create a modern furniture e-commerce platform with a premium shopping experience while maintaining secure authentication, validated user input, reliable checkout, inventory handling and protected administrative workflows.",
+    solution: "Built a full-stack furniture e-commerce platform using Next.js and TypeScript with MongoDB through Prisma. Features Argon2 authentication, role-based admin controls, guest/user cart, Stripe payments, and order tracking.",
+    features: [
+      "Argon2 password hashing & Auth.js customer/admin/super-admin access",
+      "Product catalog, categories, pricing, stock levels & featured showcases",
+      "Guest & authenticated shopping cart session management",
+      "Stripe checkout integration & server-side order handling",
+      "Zod schema input validation & Playwright end-to-end testing"
+    ],
+    metrics: [
+      { label: "Authentication", value: "Argon2" },
+      { label: "Payments", value: "Stripe" },
+      { label: "Access Control", value: "RBAC" }
+    ],
+    tags: ["Next.js", "TypeScript", "MongoDB", "Prisma", "Auth.js", "Argon2", "Zod", "Stripe", "Tailwind CSS", "Framer Motion", "Playwright"],
+    icon: ShoppingBag,
+    githubLink: "https://github.com/kumarBijesh/Modulive",
+    liveLink: "https://modulive-seven.vercel.app/",
+    liveText: "Live Website",
+    thumbnail: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80",
+    videoUrl: "https://player.vimeo.com/external/384745222.sd.mp4?s=503d5e23730e2f5db2c50e7b789178229bbfd2c3&profile_id=165&oauth2_token_id=57447761",
+    duration: "0:55"
+  },
   {
     title: "ThreatXray Malware Scanner",
     tagline: "Published Academic Security Research",
@@ -297,7 +325,7 @@ const ProjectsSection = () => {
                   transition={{ duration: 0.7, delay: index * 0.15 }}
                   className="h-full"
                 >
-                  <Card className="group relative h-full flex flex-col justify-between overflow-hidden bg-card/45 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-0 shadow-soft hover:shadow-strong hover:border-accent/30 transition-all duration-500">
+                  <Card className="group relative h-full flex flex-col justify-between overflow-hidden bg-card/60 backdrop-blur-xl border border-border/80 rounded-[2.5rem] p-0 shadow-soft hover:shadow-strong hover:border-accent/40 transition-all duration-500">
                     
                     {/* Upper Interactive Browser Frame Mockup */}
                     <ProjectCardHeader 
@@ -311,10 +339,10 @@ const ProjectsSection = () => {
                         
                         {/* Title Block */}
                         <div className="space-y-1.5 text-left">
-                          <h3 className="text-2xl font-display font-black leading-tight group-hover:text-accent transition-colors">
+                          <h3 className="text-2xl font-display font-black leading-tight group-hover:text-accent transition-colors text-foreground">
                             {project.title}
                           </h3>
-                          <p className="text-accent/90 text-xs font-bold uppercase tracking-wider font-sans">
+                          <p className="text-accent text-xs font-bold uppercase tracking-wider font-sans">
                             {project.tagline}
                           </p>
                         </div>
@@ -323,11 +351,11 @@ const ProjectsSection = () => {
                         <div className="space-y-4 font-sans text-left">
                           <div className="space-y-1">
                             <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-black">Problem</p>
-                            <p className="text-sm font-medium text-foreground/75 leading-relaxed">{project.problem}</p>
+                            <p className="text-sm font-medium text-foreground/80 leading-relaxed">{project.problem}</p>
                           </div>
                           <div className="space-y-1">
-                            <p className="text-[9px] uppercase tracking-widest text-accent/80 font-black">Solution</p>
-                            <p className="text-sm font-semibold text-foreground/90 leading-relaxed">{project.solution}</p>
+                            <p className="text-[9px] uppercase tracking-widest text-accent font-black">Solution</p>
+                            <p className="text-sm font-semibold text-foreground leading-relaxed">{project.solution}</p>
                           </div>
                         </div>
 
@@ -336,7 +364,7 @@ const ProjectsSection = () => {
                           <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-black">Core Features</p>
                           <div className="space-y-1.5">
                             {project.features.slice(0,3).map((feat, featIdx) => (
-                              <div key={featIdx} className="flex items-start gap-2 text-xs font-semibold text-foreground/70 leading-normal font-sans">
+                              <div key={featIdx} className="flex items-start gap-2 text-xs font-semibold text-foreground/80 leading-normal font-sans">
                                 <CheckCircle className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" />
                                 <span>{feat}</span>
                               </div>
@@ -350,7 +378,7 @@ const ProjectsSection = () => {
                             <Badge 
                               key={tagIdx} 
                               variant="secondary" 
-                              className="bg-white/5 border border-white/10 hover:border-accent/20 text-white font-bold text-[9px] tracking-wider px-2 py-0.5 transition-colors"
+                              className="bg-primary/5 border border-border text-foreground font-bold text-[9px] tracking-wider px-2 py-0.5 transition-colors hover:border-accent/30"
                             >
                               {tag}
                             </Badge>
@@ -360,7 +388,7 @@ const ProjectsSection = () => {
 
                       {/* Lower Metrics & Impact Strip */}
                       <div className="space-y-6">
-                        <div className="grid grid-cols-3 gap-2 py-3.5 px-4 rounded-2xl bg-white/[0.02] border border-white/5">
+                        <div className="grid grid-cols-3 gap-2 py-3.5 px-4 rounded-2xl bg-primary/5 border border-border">
                           {project.metrics.map((metric, metricIdx) => (
                             <div key={metricIdx} className="text-center space-y-0.5">
                               <div className="text-base font-display font-black text-accent">{metric.value}</div>
@@ -374,7 +402,7 @@ const ProjectsSection = () => {
                           <Button 
                             variant="outline" 
                             size="lg"
-                            className="flex-1 rounded-xl bg-white/5 border-white/10 hover:border-accent text-xs uppercase tracking-wider font-bold"
+                            className="flex-1 rounded-xl bg-transparent border-border hover:border-accent text-xs uppercase tracking-wider font-bold"
                             asChild
                           >
                             <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
@@ -391,8 +419,8 @@ const ProjectsSection = () => {
                               asChild
                             >
                               <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                                <BookOpen className="w-4 h-4 mr-2" />
-                                {project.liveText || "Live Demo"}
+                                <ExternalLink className="w-4 h-4 mr-2" />
+                                {project.liveText || "Live Website"}
                               </a>
                             </Button>
                           ) : (
@@ -400,7 +428,7 @@ const ProjectsSection = () => {
                               variant="ghost" 
                               size="lg"
                               disabled
-                              className="flex-1 rounded-xl text-[10px] text-muted-foreground bg-white/[0.01] uppercase font-bold"
+                              className="flex-1 rounded-xl text-[10px] text-muted-foreground bg-primary/5 uppercase font-bold"
                             >
                               Local Exec Only
                             </Button>

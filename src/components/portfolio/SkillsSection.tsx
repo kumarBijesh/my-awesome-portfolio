@@ -204,19 +204,19 @@ const SkillsSection = () => {
                   {/* Subtle outer neon glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-primary/0 group-hover:from-accent/5 group-hover:to-primary/5 rounded-[2rem] blur-xl transition-all duration-500 -z-10" />
 
-                  <div className="h-full bg-card/45 backdrop-blur-xl border border-white/5 group-hover:border-white/10 rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 shadow-soft">
+                  <div className="h-full bg-card/60 backdrop-blur-xl border border-border/80 group-hover:border-accent/40 rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-500 shadow-soft text-left">
                     <div>
                       {/* Card Header */}
                       <div className="flex items-center justify-between mb-6">
                         <div className={`p-4 rounded-2xl bg-gradient-to-br ${category.color.split(" ").slice(0,2).join(" ")} border ${category.color.split(" ")[2]} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500`}>
                           <Icon className="w-6 h-6" />
                         </div>
-                        <div className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground opacity-60 group-hover:opacity-100 transition-opacity">
+                        <div className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
                           Tech Stack
                         </div>
                       </div>
 
-                      <h3 className="text-2xl font-display font-black mb-3 group-hover:text-accent transition-colors">
+                      <h3 className="text-2xl font-display font-black mb-3 group-hover:text-accent transition-colors text-foreground">
                         {category.title}
                       </h3>
                       
@@ -227,14 +227,14 @@ const SkillsSection = () => {
 
                     {/* Skill List */}
                     <div className="space-y-2 mt-auto">
-                      <div className="h-[1px] w-full bg-white/5 mb-4" />
+                      <div className="h-[1px] w-full bg-border/60 mb-4" />
                       <div className="flex flex-wrap gap-2">
                         {category.skills.map((skill, skillIdx) => (
                           <div 
                             key={skillIdx}
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.02] border border-white/[0.05] group-hover:border-white/10 text-xs font-semibold text-foreground/80 hover:text-accent hover:border-accent/30 transition-all duration-300"
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary/5 border border-border text-xs font-semibold text-foreground hover:text-accent hover:border-accent/40 transition-all duration-300"
                           >
-                            <CheckCircle2 className="w-3 h-3 text-accent/80 shrink-0" />
+                            <CheckCircle2 className="w-3 h-3 text-accent shrink-0" />
                             {skill}
                           </div>
                         ))}

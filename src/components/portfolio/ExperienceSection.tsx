@@ -49,7 +49,7 @@ const experiences: ExperienceItem[] = [
     ],
     skills: ["React", "TypeScript", "Next.js", "Express.js", "PostgreSQL", "CSP Headers", "API Audits", "Caching"],
     link: "https://musbresearch.com",
-    linkText: "MusB Research",
+    linkText: "Visit MusB Research Website",
     highlighted: true
   },
   {
@@ -103,13 +103,13 @@ const GitHubActivityGrid = () => {
   };
 
   return (
-    <Card className="group relative overflow-hidden bg-card/45 backdrop-blur-xl border border-white/5 p-6 rounded-[2.5rem] shadow-soft hover:border-accent/20 transition-all duration-500">
+    <Card className="group relative overflow-hidden bg-card/60 backdrop-blur-xl border border-border/80 p-6 rounded-[2.5rem] shadow-soft hover:border-accent/40 transition-all duration-500">
       <div className="absolute -right-8 -top-8 w-24 h-24 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors" />
       
       <div className="space-y-5 text-left">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/25 text-emerald-400 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/25 text-emerald-500 flex items-center justify-center">
               <GitBranch className="w-5 h-5" />
             </div>
             <div>
@@ -136,9 +136,9 @@ const GitHubActivityGrid = () => {
         </div>
 
         {/* Stats metrics */}
-        <div className="grid grid-cols-3 gap-2 py-3 px-4 rounded-xl bg-white/[0.02] border border-white/5 text-center">
+        <div className="grid grid-cols-3 gap-2 py-3 px-4 rounded-xl bg-primary/5 border border-border text-center">
           <div>
-            <div className="text-base font-display font-black text-white leading-none">385</div>
+            <div className="text-base font-display font-black text-foreground leading-none">385</div>
             <div className="text-[7.5px] uppercase tracking-widest text-muted-foreground font-bold mt-1">Commits</div>
           </div>
           <div>
@@ -148,7 +148,7 @@ const GitHubActivityGrid = () => {
             <div className="text-[7.5px] uppercase tracking-widest text-muted-foreground font-bold mt-1">Day Streak</div>
           </div>
           <div>
-            <div className="text-base font-display font-black text-white leading-none">99.1%</div>
+            <div className="text-base font-display font-black text-foreground leading-none">99.1%</div>
             <div className="text-[7.5px] uppercase tracking-widest text-muted-foreground font-bold mt-1">Push Ratio</div>
           </div>
         </div>
@@ -157,7 +157,7 @@ const GitHubActivityGrid = () => {
         <Button
           variant="outline"
           size="sm"
-          className="w-full rounded-xl py-5 border-white/10 hover:border-accent hover:text-accent bg-transparent text-xs font-bold uppercase tracking-wider"
+          className="w-full rounded-xl py-5 border-border hover:border-accent hover:text-accent bg-transparent text-xs font-bold uppercase tracking-wider"
           asChild
         >
           <a href="https://github.com/kumarBijesh" target="_blank" rel="noopener noreferrer">
@@ -180,46 +180,46 @@ const CurrentlyWorkingTerminal = () => {
   }, []);
 
   return (
-    <Card className="group relative overflow-hidden bg-black/80 border border-white/5 rounded-[2.5rem] shadow-strong hover:border-accent/20 transition-all duration-500">
+    <Card className="group relative overflow-hidden bg-card/75 backdrop-blur-xl border border-border/80 rounded-[2.5rem] shadow-soft hover:border-accent/40 transition-all duration-500">
       {/* Top window headers */}
-      <div className="h-8 bg-black/60 border-b border-white/5 flex items-center justify-between px-5">
+      <div className="h-8 bg-primary/5 border-b border-border flex items-center justify-between px-5">
         <div className="flex gap-1.5 items-center">
           <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
         </div>
-        <div className="text-[8.5px] text-muted-foreground/50 tracking-wider font-mono uppercase font-bold">
+        <div className="text-[8.5px] text-muted-foreground tracking-wider font-mono uppercase font-bold">
           working-directory - zsh
         </div>
         <div className="w-8" />
       </div>
 
       {/* Terminal shell body */}
-      <div className="p-6.5 font-mono text-[11px] sm:text-xs text-foreground/80 space-y-4 text-left leading-relaxed select-none">
+      <div className="p-6.5 font-mono text-[11px] sm:text-xs text-foreground space-y-4 text-left leading-relaxed select-none">
         <div>
-          <span className="text-accent">bijesh@kumar:~$</span> <span className="text-white">cat working-on.md</span>
+          <span className="text-accent font-bold">bijesh@kumar:~$</span> <span className="text-foreground font-bold">cat working-on.md</span>
         </div>
         
-        <div className="space-y-2.5 border-l border-white/10 pl-3">
+        <div className="space-y-2.5 border-l border-border/80 pl-3">
           <div className="flex items-start gap-2">
             <span className="text-accent shrink-0">🚀</span>
-            <span>Improving <strong className="text-white">ThreatXray</strong> with advanced deep learning heuristic scanning and payload classification tools.</span>
+            <span>Improving <strong className="text-foreground font-bold">ThreatXray</strong> with deep learning threat scanning and payload classification tools.</span>
           </div>
           
           <div className="flex items-start gap-2">
             <span className="text-accent shrink-0">🛠️</span>
-            <span>Engineering high-performance software automation workflows and bundle compression tasks.</span>
+            <span>Building fast web application automation tools and bundle compression scripts.</span>
           </div>
 
           <div className="flex items-start gap-2">
             <span className="text-accent shrink-0">🛡️</span>
-            <span>Strengthening skills in <strong className="text-white">Cloud Security & DevSecOps</strong> pipelines, auditing Docker environments, and automated lint filters.</span>
+            <span>Expanding skills in <strong className="text-foreground font-bold">Cloud Security & DevSecOps</strong> pipelines, container security, and code quality.</span>
           </div>
         </div>
 
         <div className="pt-2 flex items-center">
-          <span className="text-accent mr-1.5">bijesh@kumar:~$</span>
-          <span className="text-white">git status</span>
+          <span className="text-accent font-bold mr-1.5">bijesh@kumar:~$</span>
+          <span className="text-foreground font-bold">git status</span>
           <span className={`ml-1.5 w-1.5 h-3.5 bg-accent ${blink ? "opacity-100" : "opacity-0"}`} />
         </div>
       </div>

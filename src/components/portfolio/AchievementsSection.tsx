@@ -82,14 +82,14 @@ const AchievementsSection = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.7, delay: index * 0.2 }}
                 >
-                  <Card className="group relative overflow-hidden bg-card/45 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 md:p-12 hover:border-accent/45 transition-all duration-500 shadow-soft hover:shadow-strong">
+                  <Card className="group relative overflow-hidden bg-card/60 backdrop-blur-xl border border-border/80 rounded-[2.5rem] p-8 md:p-12 hover:border-accent/45 transition-all duration-500 shadow-soft hover:shadow-strong text-left">
                     
                     {/* Glowing Accent Corner */}
                     <div className="absolute -right-16 -top-16 w-48 h-48 bg-accent/5 rounded-full blur-[60px] group-hover:bg-accent/10 transition-colors duration-500 -z-10" />
 
                     <div className="flex flex-col md:flex-row items-start gap-8 md:gap-10">
                       {/* Icon */}
-                      <div className="w-16 h-16 rounded-2xl bg-accent text-black flex items-center justify-center shadow-glow-sm shrink-0 group-hover:rotate-3 transition-transform duration-500">
+                      <div className="w-16 h-16 rounded-2xl bg-accent text-accent-foreground flex items-center justify-center shadow-soft shrink-0 group-hover:rotate-3 transition-transform duration-500">
                         <Icon className="w-8 h-8" />
                       </div>
 
@@ -103,24 +103,24 @@ const AchievementsSection = () => {
                             
                             {item.teamSize && (
                               <span className="text-xs text-muted-foreground font-semibold flex items-center gap-1.5">
-                                <span className="w-1.5 h-1.5 rounded-full bg-white/10" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-border" />
                                 {item.teamSize}
                               </span>
                             )}
                             
                             {item.metric && (
-                              <Badge className="bg-white/5 border border-white/10 text-white text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">
+                              <Badge className="bg-primary/5 border border-border text-foreground text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">
                                 {item.metric}
                               </Badge>
                             )}
                           </div>
                           
-                          <h3 className="text-2xl md:text-3xl font-display font-black leading-tight group-hover:text-accent transition-colors">
+                          <h3 className="text-2xl md:text-3xl font-display font-black leading-tight group-hover:text-accent transition-colors text-foreground">
                             {item.title}
                           </h3>
                         </div>
 
-                        <p className="text-foreground/75 font-sans text-base leading-relaxed font-medium">
+                        <p className="text-foreground/80 font-sans text-base leading-relaxed font-medium">
                           {item.description}
                         </p>
 

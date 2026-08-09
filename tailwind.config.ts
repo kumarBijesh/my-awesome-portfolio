@@ -16,7 +16,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        'display': ['Orbitron', 'sans-serif'],
+        'display': ['Outfit', 'Inter', 'sans-serif'],
+        'serif': ['Playfair Display', 'serif'],
         'body': ['Inter', 'sans-serif'],
       },
       colors: {

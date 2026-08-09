@@ -94,7 +94,7 @@ const Footer = () => {
                   href={soc.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-foreground/60 hover:text-accent hover:border-accent/40 transition-all duration-300"
+                  className="p-2.5 rounded-xl bg-primary/5 border border-border text-foreground/80 hover:text-accent hover:border-accent/40 transition-all duration-300"
                   aria-label={soc.label}
                 >
                   <soc.icon className="w-4.5 h-4.5" />
@@ -107,7 +107,7 @@ const Footer = () => {
               variant="outline"
               size="icon"
               onClick={scrollToTop}
-              className="rounded-full w-11 h-11 border-white/10 bg-white/5 hover:border-accent hover:text-accent transition-all duration-300 shadow-lg group"
+              className="rounded-full w-11 h-11 border-border bg-primary/5 hover:border-accent hover:text-accent transition-all duration-300 shadow-soft group"
               aria-label="Back to Top"
             >
               <ArrowUp className="w-4.5 h-4.5 transition-transform group-hover:-translate-y-0.5" />
@@ -117,7 +117,7 @@ const Footer = () => {
         </div>
 
         {/* Lower Meta Credits bar */}
-        <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium text-muted-foreground/60">
+        <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium text-muted-foreground">
           <p>© {new Date().getFullYear()} Bijesh Kumar. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <a 
@@ -129,7 +129,7 @@ const Footer = () => {
               <Download className="w-3.5 h-3.5" />
               Download Resume
             </a>
-            <span className="w-1.5 h-1.5 rounded-full bg-white/10" />
+            <span className="w-1.5 h-1.5 rounded-full bg-border" />
             <span>Built with React & Tailwind CSS</span>
           </div>
         </div>

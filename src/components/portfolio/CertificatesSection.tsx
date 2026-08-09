@@ -136,35 +136,35 @@ const CertificatesSection = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.7, delay: index * 0.15 }}
                 >
-                  <Card className="group relative h-full flex flex-col justify-between overflow-hidden bg-card/45 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-8 hover:border-accent/40 hover:scale-[1.02] transition-all duration-500 shadow-soft">
+                  <Card className="group relative h-full flex flex-col justify-between overflow-hidden bg-card/60 backdrop-blur-xl border border-border/80 rounded-[2.5rem] p-8 hover:border-accent/40 hover:scale-[1.02] transition-all duration-500 shadow-soft">
                     {/* Glowing card aura */}
                     <div className="absolute -right-8 -top-8 w-24 h-24 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors duration-500" />
                     
                     <div className="space-y-6 text-left">
                       {/* Logo and meta */}
                       <div className="flex justify-between items-start">
-                        <div className="w-14 h-14 rounded-2xl bg-black/40 border border-white/10 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-300">
+                        <div className="w-14 h-14 rounded-2xl bg-primary/5 border border-border flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-300">
                           <Logo />
                         </div>
-                        <Badge variant="outline" className="border-white/10 text-[9px] uppercase tracking-wider text-muted-foreground font-black px-2 py-0.5 rounded-full">
+                        <Badge variant="outline" className="border-border text-[9px] uppercase tracking-wider text-muted-foreground font-black px-2 py-0.5 rounded-full">
                           {cert.issuer} • {cert.date}
                         </Badge>
                       </div>
 
                       {/* Title block */}
                       <div className="space-y-2">
-                        <h3 className="text-xl font-display font-black leading-tight group-hover:text-accent transition-colors">
+                        <h3 className="text-xl font-display font-black leading-tight group-hover:text-accent transition-colors text-foreground">
                           {cert.title}
                         </h3>
                         {cert.id && (
-                          <p className="text-[9px] text-muted-foreground/60 tracking-widest font-mono font-black uppercase">
+                          <p className="text-[9px] text-muted-foreground tracking-widest font-mono font-black uppercase">
                             Verify ID: {cert.id}
                           </p>
                         )}
                       </div>
 
                       {/* Divider */}
-                      <div className="h-[1px] w-full bg-white/5" />
+                      <div className="h-[1px] w-full bg-border/60" />
 
                       {/* Verified Skills list */}
                       <div className="space-y-2">
@@ -176,7 +176,7 @@ const CertificatesSection = () => {
                             <Badge 
                               key={skillIdx} 
                               variant="secondary" 
-                              className="bg-white/5 border border-transparent hover:border-white/10 text-[8.5px] text-foreground/80 font-bold px-2 py-0.5"
+                              className="bg-primary/5 border border-border hover:border-accent/30 text-[8.5px] text-foreground font-bold px-2 py-0.5"
                             >
                               {skill}
                             </Badge>
